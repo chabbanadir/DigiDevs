@@ -1,0 +1,148 @@
+---
+import HeroSection from '../../components/moleculs/HeroSection.astro';
+import SecondHero from '../../components/moleculs/SecondHero.astro';
+import ServicePacks from '../../components/moleculs/ServicePacks.astro';
+import Technologies from '../../components/moleculs/Technologies.astro';
+import WhySection from '../../components/moleculs/WhySection.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const cards = [
+  {
+    icon: "Services/Design",
+    title: "Design Unique et Personnalisé",
+    description: "Chaque site web vitrine reflète l'identité de l'entreprise avec une présentation professionnelle et attractive."
+  },
+  {
+    icon: "Services/reporting",
+    title: "Navigation Intuitive et Expérience Utilisateur Optimisée",
+    description: "Une structure claire et intuitive pour une meilleure satisfaction des visiteurs."
+  },
+  {
+    icon: "Services/Seo",
+    title: "Optimisation SEO pour une Meilleure Visibilité",
+    description: "Des techniques SEO avancées pour attirer plus de visiteurs et améliorer le classement dans les moteurs de recherche"
+  },
+  {
+    icon: "Services/cell",
+    title: "Adaptabilité Mobile pour Toucher Plus de Clients",
+    description: "Un site web vitrine entièrement responsive pour une expérience utilisateur cohérente et agréable."
+  },
+];
+const technologies = [
+  {
+    name: "WordPress",
+    icon: "technologie/wp",
+    description: "Pour des sites vitrines flexibles et faciles à gérer, idéaux pour une présence rapide en ligne.",
+  },
+  {
+    name: "Astro.js",
+    icon: "technologie/astrojs",
+    description: "Pour des sites ultra-rapides et performants avec des designs modernes.",
+  },
+  {
+    name: "Tailwind CSS",
+    icon: "technologie/tailwind",
+    description: "Pour un design moderne et des interfaces responsives.",
+  },
+  {
+    name: "JavaScript",
+    icon: "technologie/nodejs",
+    description: "Langage principal pour créer des sites dynamiques et interactifs.",
+  },
+  {
+    name: "Vue.js",
+    icon: "technologie/vue",
+    description: "Framework JavaScript pour des applications web dynamiques et modulaires.",
+  },
+  {
+    name: "HTML & CSS",
+    icon: "technologie/html",
+    description: "Les bases de chaque site, adaptées pour la compatibilité et la flexibilité.",
+  },
+  {
+    name: "Angular",
+    icon: "technologie/angular",
+    description: "Framework puissant pour des applications robustes et maintenables.",
+  }
+];
+const servicePacks = [
+  {
+    title: "Pack Standard",
+    price: "1500 €",
+    features: [
+      "Design personnalisé",
+      "Landing page simple",
+      "Optimisation SEO",
+      "Formulaire de contact intégré"
+    ],
+    buttonText: "Choisir ce pack",
+    isPopular: false
+  },
+  {
+    title: "Pack Sur Mesure",
+    price: "20000 €",
+    features: [
+      "Plan Pro",
+      "Site complet avec blog",
+      "Fonctionnalité de recherche",
+      "Deux boîtes email",
+      "Nom de domaine offert (1 an)"
+    ],
+    buttonText: "Choisir ce pack",
+    isPopular: true
+  },
+  {
+    title: "Pack Premium",
+    price: "8000 €",
+    features: [
+      "Plan Starter",
+      "Jusqu'à 5 pages",
+      "Intégrations réseaux sociaux",
+      "CMS pour contenu personnalisé",
+      "Analytique personnalisé"
+    ],
+    buttonText: "Choisir ce pack",
+    isPopular: false
+  }
+];
+
+
+---
+<Layout title="Landing Pages" className='bg-neutral'> 
+    <HeroSection 
+    title= 'Améliorez Votre Visibilité en Ligne avec un Site Web Vitrine Professionnel!'
+    subtitle = 'Découvrez comment un site web vitrine peut attirer davantage de clients et accroître votre visibilité.' 
+    img='/illustration/HeroSection.png'
+    altImg='landing Hero'
+    className=''
+    width={900}
+    height={900}
+    btnTitle="Obtenez un Devis Gratui"
+    btnclassName="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-2 px-6 rounded-full shadow-lg transform transition hover:scale-105"
+    badgeTitle="Inspire. Innovate. Succeed."
+    />
+
+    <WhySection 
+    title='Pourquoi un Site Web Vitrine est indispensable pour Votre Entreprise?'
+    description="Un site web vitrine est votre présentation en ligne. Il permet de présenter votre entreprise, vos prestations et vos principes de manière professionnelle et accessible. Vous profitez d'une solution personnalisée, optimisée pour le référencement et compatible avec tous les dispositifs en choisissant nos offres de création de site web vitrine professionnelle" 
+    cardData={cards}
+    badgeTitle="Expertise. Stratégie. Succès."
+    />
+    <SecondHero 
+    title= 'Les Caractéristiques de Votre Site Web Vitrine'
+    subtitle = "Un site web vitrine bien conçu propose une variété complète de caractéristiques qui garantissent une expérience utilisateur fluide et captivante. Chaque élément est conçu pour satisfaire aux besoins spécifiques de votre entreprise et optimiser l'effet de votre présence en ligne." 
+    img='/illustration/Avantages.png'
+    altImg='landing Hero'
+    width={900}
+    height={900}
+    badgeTitle="Votre succès est notre succès"
+    />
+    <Technologies title="Téchnologies" technologies={technologies} />
+    <ServicePacks title="Nos Packs de Services" servicePacks={servicePacks} />
+    <!--     <ServicesSection />
+    <Stacks />
+    <Packages />
+    <FAQ />
+    <Testimonials /> -->
+
+</Layout>

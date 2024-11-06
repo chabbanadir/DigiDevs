@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+import Btn from '../atoms/Btn.astro';
+import { Icon } from 'astro-icon/components'
+
+const {links} =Astro.props
+---
+
+<nav class="bg-gradient-to-r from-primary to-dark-gray shadow-lg">
+  <div class="container mx-auto flex items-center justify-between">
+    <Image src="/Logo.png" alt="A bird sitting on a nest of eggs." width={70} height={70} />
+
+    <div class="gap-8 flex flex-col sm:flex-row items-center">
+      {links.map((link: { href: string | URL | null | undefined; icon: any; label: unknown; subitems: any[]; }) => (
+        <div class="relative group">
+          <a href={link.href} class="text-neutral hover:text-accent flex items-center gap-2">
+            <Icon name={link.icon} class="group-hover:text-accent" />
+            {link.label}
+            {/* Arrow icon for dropdown */}
+            {link.subitems && <Icon name="mdi:chevron-down" class="group-hover:text-accent" />}
+          </a>
+
+          {/* Dropdown menu */}
+          {link.subitems && (
+            <div class="hidden group-hover:block absolute left-0 z-10 divide-y divide-gray-100 rounded shadow w-max ">
+              {link.subitems.map((sublink: { href: string | URL | null | undefined; icon: any; label: unknown; }) => (
+                <a href={sublink.href} class="flex items-center gap-2 p-4 hover:text-accent text-neutral bg-primary">
+                  <Icon name={sublink.icon} class="hover:text-accent" />
+                  {sublink.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <Btn 
+    title="Estimez votre projet"
+    className="text-neutral shadow-lg border rounded-lg border-accent hover:border-neutral hover:bg-neutral hover:text-primary  p-2"
+    />
+  </div>
+</nav>
+
+

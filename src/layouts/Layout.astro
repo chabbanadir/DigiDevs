@@ -1,0 +1,110 @@
+---
+import Footer from '../components/organics/Footer.astro';
+import Navbar from '../components/organics/Navbar.astro';
+
+interface Props {
+	title: string;
+	className: string;
+}
+const link =[
+  {
+    label: "Liens Rapides",
+    href: "#",
+	subitems: [
+      { label: "Accueil", href: "#" },
+      { label: "Approche PSD", href: "#" },
+      { label: "Contact", href: "#" },
+	  { label: "À Propos", href: "#" }
+    ]
+  },
+
+  {
+    label: "Services",
+    href: "#",
+    subitems: [
+      { label: "Création de Landing Pages", href: "#" },
+      { label: "Développement Front-End & Back-End", href: "#" },
+      { label: "Intégration ERP Odoo", href: "#" },
+      { label: "SEO (Référencement Naturel)", href: "#" }
+    ]
+  }
+];
+
+const companyName = "Digital Development";
+const companyDescription = "DigiDevs est une agence digitale spécialisée en développement d'applications, SEO, et intégration ERP. Elle accompagne les entreprises dans leur transformation digitale grâce à l'approche PSD (Process Simplification & Digitalization), en offrant des solutions personnalisées et performantes adaptées aux besoins des clients.";
+
+const socialLinks = [
+  { href: "https://facebook.com", icon: "mdi:facebook" },
+  { href: "https://twitter.com", icon: "mdi:twitter" },
+  { href: "https://linkedin.com", icon: "mdi:linkedin" },
+];
+const links = [
+  {
+    label: "Accueil",
+    href: "#",
+    icon: "navicons/home"
+  },
+  {
+    label: "Solutions",
+    href: "#",
+    icon: "navicons/Solution",
+    subitems: [
+      { label: "Digitalization", href: "#", icon: "navicons/appweb" },
+      { label: "Integration ERP", href: "#", icon: "navicons/Erp" },
+      { label: "Audit SEO", href: "#", icon: "navicons/SEo" }
+    ]
+  },
+  {
+    label: "Services",
+    href: "#",
+    icon: "navicons/Services",
+    subitems: [
+      { label: "Création de Landing Pages", href: "/services/landingpages", icon: "navicons/landing" },
+      { label: "Développement Front-End & Back-End", href: "#" ,icon :"navicons/appweb"},
+      { label: "Intégration de Solutions ERP Odoo", href: "#", icon: "navicons/Erp" },
+      { label: "Développement d'Applications Web", href: "#", icon: "navicons/dev" },
+      { label: "SEO (Référencement Naturel)", href: "#", icon: "navicons/SEo" },
+      { label: "Gestion de Communauté", href: "#", icon: "navicons/Communauty" },
+      { label: "Projets d'Intelligence Artificielle", href: "#", icon: "navicons/Ai" }
+    ]
+  },
+  {
+    label: "Approche PSD",
+    href: "#",
+    icon: "navicons/psd"
+  },
+  {
+    label: "Contact",
+    href: "#",
+    icon: "navicons/Contact"
+  },
+  {
+    label: "À Propos",
+    href: "#",
+    icon: "navicons/apropo"
+  }
+];
+const { title,className} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class=`${className}`>
+		<Navbar links={links}/>
+		<slot />
+	</body>
+	<Footer
+	links={link}
+	companyName={companyName}
+	companyDescription={companyDescription}
+	socialLinks={socialLinks}
+  />
+</html>

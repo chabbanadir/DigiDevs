@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from "astro";
+import Badge from "../atoms/Badge.astro";
+
+interface Props {
+  img:any | ImageMetadata;
+  altImg: string;
+  title: string; 
+  subtitle?: string
+  width?: number; 
+  height?: number; 
+  badgeTitle:string;
+}
+const {title= 'title', altImg= 'alt',subtitle = 'subtitle' , img='/illutration/HeroImage.png',height =500,width=500 ,badgeTitle}= Astro.props
+
+---
+<section class="grid gap-8 sm:grid-cols-2 items-center bg-gradient-to-r from-primary to-dark-gray text-neutral p-12 shadow-lg">
+  <div class="space-y-4">
+    <Badge title={badgeTitle} variant="dark-gray" />
+
+    <h2 class="text-3xl font-bold text-accent">{title}</h2>    
+    <span class="text-lg text-neutral">{subtitle}</span>
+  </div>
+  <div class="flex justify-center sm:justify-end">
+    <Image src={img} alt={altImg} width={width} height={height} class="rounded-lg" />
+  </div>
+</section>

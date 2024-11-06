@@ -1,0 +1,69 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Link {
+  label: string;
+  href: string;
+  icon?: string;
+  subitems?: Link[];
+}
+
+const { links, companyName, companyDescription, socialLinks } = Astro.props;
+---
+
+<footer class="bg-dark-gray text-light-gray pt-24 items-center ">
+    <!-- Top border line -->
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col sm:flex-row justify-between items-center sm:items-start sm:text-start text-center ">
+        
+        <!-- Company Info -->
+        <div class="md:w-1/4 mx-12">
+          <img src="/Logo.png" alt={`${companyName} Logo`} class="w-24 mb-4">
+          <p class="text-sm">{companyDescription}</p>
+        </div>
+  
+        <!-- Dynamic Links Sections -->
+        {links.map((link: { label: unknown; subitems: any[]; href: string | URL | null | undefined; }) => (
+          <div class="md:w-1/4 px-4">
+            <h3 class="font-semibold text-lg text-neutral mb-4">{link.label}</h3>
+            <ul class="space-y-2">
+              {link.subitems ? (
+                link.subitems.map((subitem: { href: string | URL | null | undefined; label: unknown; }) => (
+                  <li>
+                    <a href={subitem.href} class="hover:text-accent transition-colors">{subitem.label}</a>
+                  </li>
+                ))
+              ) : (
+                <li>
+                  <a href={link.href} class="hover:text-accent transition-colors">{link.label}</a>
+                </li>
+              )}
+            </ul>
+          </div>
+        ))}
+  
+        <!-- Social Links -->
+        <div class="md:w-1/4 px-4">
+          <h3 class="font-semibold text-lg text-neutral mb-4">Légal</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-accent transition-colors">FAQ</a></li>
+            <li><a href="#" class="hover:text-accent transition-colors">Blog</a></li>
+            <li><a href="#" class="hover:text-accent transition-colors">Conditions Générales</a></li>
+          </ul>
+          <div class="flex space-x-4 mt-4">
+            {socialLinks.map((social: { href: string | URL | null | undefined; icon: any; }) => (
+              <a href={social.href} target="_blank" class="text-light-gray hover:text-accent transition-colors">
+                <Icon name={social.icon} class="w-5 h-5" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Top Border Line for Separation -->
+      <div class="border-t-4 border-accent mt-8"></div>
+
+      <!-- Footer Bottom Text -->
+      <p class="text-sm mt-4 flex justify-center px-4 pb-8">&copy; 2024 {companyName}. Tous droits réservés.</p>
+    </div>
+</footer>

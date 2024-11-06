@@ -1,0 +1,42 @@
+---
+import Badge from '../atoms/Badge.astro';
+import Card from '../atoms/Card.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  cardData: { icon: string; title: string; description: string }[];
+  className?: string;
+  cardClassName?: string;
+  badgeTitle: string;
+
+}
+
+const { title = 'title', description = 'description', cardData,badgeTitle } = Astro.props;
+---
+
+<section class="bg-gradient-to-r from-primary to-dark-gray text-neutral p-6 sm:p-12 shadow-lg min-h-screen">
+  <!-- Title and Description Section -->
+  <Badge title={badgeTitle} variant="primary" />
+  <div class="flex flex-col sm:flex-row sm:justify-between gap-8 mb-8">
+    <div class="sm:w-1/2">
+      <h2 class="text-3xl font-bold text-accent">{title}</h2>
+    </div>
+    <div class="sm:w-1/2">
+      <p class="text-lg text-neutral">{description}</p>
+    </div>
+  </div>
+  
+  <!-- Cards Section -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    {cardData.map((card, index) => (
+      <Card
+        key={index}
+        icon={card.icon}
+        title={card.title}
+        description={card.description}
+        className="p-6 bg-dark-gray rounded-lg shadow-md hover:shadow-lg transition-shadow"
+      />
+    ))}
+  </div>
+</section>
