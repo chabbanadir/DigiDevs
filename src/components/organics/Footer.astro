@@ -11,14 +11,16 @@ interface Link {
 const { links, companyName, companyDescription, socialLinks } = Astro.props;
 ---
 
-<footer class="bg-dark-gray text-light-gray pt-24 items-center ">
-    <!-- Top border line -->
+<footer class="bg-dark-gray text-light-gray  pb-8">
+    <!-- Top Border Line for Separation -->
+    <div class="border-t-4 border-accent mb-8"></div>
+
     <div class="container mx-auto px-4">
-      <div class="flex flex-col sm:flex-row justify-between items-center sm:items-start sm:text-start text-center ">
+      <div class="flex flex-col sm:flex-row justify-between items-center sm:items-start sm:text-start text-center space-y-8 sm:space-y-0">
         
         <!-- Company Info -->
-        <div class="md:w-1/4 mx-12">
-          <img src="/Logo.png" alt={`${companyName} Logo`} class="w-24 mb-4">
+        <div class="md:w-1/4 text-center sm:text-left">
+          <img src="/Logo.png" alt={`${companyName} Logo`} class="w-24 mx-auto sm:mx-0 mb-4">
           <p class="text-sm">{companyDescription}</p>
         </div>
   
@@ -42,15 +44,15 @@ const { links, companyName, companyDescription, socialLinks } = Astro.props;
           </div>
         ))}
   
-        <!-- Social Links -->
-        <div class="md:w-1/4 px-4">
+        <!-- Social Links and Legal Links -->
+        <div class="md:w-1/4 px-4 text-center sm:text-left">
           <h3 class="font-semibold text-lg text-neutral mb-4">Légal</h3>
           <ul class="space-y-2">
             <li><a href="#" class="hover:text-accent transition-colors">FAQ</a></li>
             <li><a href="#" class="hover:text-accent transition-colors">Blog</a></li>
             <li><a href="#" class="hover:text-accent transition-colors">Conditions Générales</a></li>
           </ul>
-          <div class="flex space-x-4 mt-4">
+          <div class="flex justify-center sm:justify-start space-x-4 mt-4">
             {socialLinks.map((social: { href: string | URL | null | undefined; icon: any; }) => (
               <a href={social.href} target="_blank" class="text-light-gray hover:text-accent transition-colors">
                 <Icon name={social.icon} class="w-5 h-5" />
@@ -60,10 +62,7 @@ const { links, companyName, companyDescription, socialLinks } = Astro.props;
         </div>
       </div>
 
-      <!-- Top Border Line for Separation -->
-      <div class="border-t-4 border-accent mt-8"></div>
-
       <!-- Footer Bottom Text -->
-      <p class="text-sm mt-4 flex justify-center px-4 pb-8">&copy; 2024 {companyName}. Tous droits réservés.</p>
+      <p class="text-sm mt-8 text-center">&copy; 2024 {companyName}. Tous droits réservés.</p>
     </div>
 </footer>

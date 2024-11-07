@@ -19,15 +19,15 @@ interface Props {
 const {title= 'title', altImg= 'alt',subtitle = 'subtitle' , img='/illutration/HeroImage.png',height =500,width=500 ,className,btnTitle,btnclassName,badgeTitle}= Astro.props
 
 ---
-<section class="grid gap-8 min-h-screen sm:grid-cols-2 items-center bg-gradient-to-r from-primary to-dark-gray text-neutral p-12 shadow-lg">
-  <div class="space-y-4">
+<section class="sm:min-h-screen md:flex md:items-start md:justify-between sm:px-24 bg-primary  text-neutral p-12">
+  <div class="w-full md:w-2/3 space-y-4">
     <Badge title={badgeTitle} variant="dark-gray" />
 
-    <h1 class="text-5xl font-bold text-accent">{title}</h1>    
-    <span class="text-lg text-neutral">{subtitle}</span>
+    <h1 class="sm:text-5xl text-2xl font-bold text-accent">{title}</h1>    
+    <span class="sm:text-lg text-sm text-neutral">{subtitle}</span>
     <Btn title={btnTitle} className={`${btnclassName} block bg-accent hover:bg-secondary text-neutral font-medium py-2 px-4 rounded`} />
   </div>
-  <div class="flex justify-center sm:justify-end">
+  <div class="hidden md:block justify-center sm:justify-end">
     <Image src={img} alt={altImg} width={width} height={height} class="rounded-lg" />
   </div>
 </section>

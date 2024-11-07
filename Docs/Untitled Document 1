@@ -1,0 +1,94 @@
+1. Hero Section
+Components: Image + Title + Subtitle + CTA Button
+Content:
+Title: “Création de Landing Pages Personnalisées”
+Subtitle: “Offrez à Votre Entreprise une Présence en Ligne Impactante”
+CTA Button: “Contactez-nous pour un Devis Gratuit”
+Visuals: A high-impact image that represents professionalism and online success.
+
+
+
+2. Why Choose a Landing Page?
+
+Components: Icon List or Accordion
+Content:
+Short intro explaining the benefits: “Une landing page dédiée est essentielle pour…”
+Key Points (icon list or accordion items):
+Présenter votre offre de manière claire et attractive.
+Améliorer votre visibilité en ligne et renforcer votre image de marque.
+Générer des leads qualifiés grâce à des appels à l’action efficaces.
+Visuals: Small icons for each point to make the list visually engaging and easy to read.
+
+3. Our Services
+
+Components: Section with Image + Card for Each Offering
+Content: Three cards summarizing each main offering (Design, User Experience, Performance).
+Card 1: Design Moderne et Personnalisé
+Short Description: “Layouts professionnels et identité visuelle cohérente.”
+Card 2: Expérience Utilisateur Optimale
+Short Description: “Responsive design et navigation intuitive.”
+Card 3: Performance et Rapidité
+Short Description: “Chargement ultra-rapide et optimisation des médias.”
+Visuals: Each card can include a relevant icon or mini-image to make it stand out.
+
+4. Technology and Packages
+
+Components: Table for Package Comparison
+Content: Use a comparison table for Standard and Premium packages.
+Columns: Feature, Standard (WordPress), Premium (Custom Framework)
+Rows/Features:
+Platform: WordPress / Custom Framework (Astro.js, Tailwind CSS)
+Pages Included: 1 / 4
+Design: Professional design / Unique design
+Contact Form: Basic / Advanced options
+Performance Optimization: Yes / Ultra-fast code optimization
+CTA Below Table: “Demandez un Devis Gratuit”
+Visuals: Table format for quick comparison.
+
+
+6. How to Choose the Right Package?
+
+Components: Card Grid or Icon List
+Content:
+Card 1: Pack Standard
+“Idéal pour une présence en ligne rapide et simple.”
+Card 2: Pack Premium
+“Parfait pour ceux qui recherchent un design unique avec plusieurs pages.”
+Card 3: Pack Sur Mesure
+“Pour les besoins complexes et l’accompagnement complet.”
+Visuals: Cards with icons or checkmarks to illustrate why each package suits different needs.
+
+7. Frequently Asked Questions (FAQ)
+
+Components: Accordion
+Content: FAQ items that answer common concerns.
+Example Questions:
+Combien de temps faut-il pour créer une landing page ?
+Puis-je modifier le contenu moi-même ?
+Proposez-vous l'hébergement et le nom de domaine ?
+Visuals: Expanding accordions for easy reading without clutter.
+
+8. Client Testimonials (Optional)
+
+Components: Testimonial Cards
+Content: Short testimonials or reviews to add social proof.
+Example: “DigiDevs nous a aidés à obtenir une page efficace et élégante, parfaite pour notre image de marque.”
+Visuals: Cards with client names, images, and brief quotes.
+
+9. Footer with Contact Information
+
+Components: Footer Links, Contact Info Section, Social Media Icons
+Content:
+Contact Information:
+Email: contact@votreentreprise.com
+Phone: +33 6 12 34 56 78
+Link to contact form: “Contactez-nous”
+Visuals: Clean footer with all necessary contact details and links to social media.
+Suggested Subcomponents:
+Hero Section: Use an image background with overlay text and a clear CTA button.
+Icon List: Simple list with icons to represent each key feature.
+Cards: For summarizing offerings and benefits with short descriptions.
+Comparison Table: For displaying feature differences between packages.
+Accordion: To expand each package’s detailed features and FAQ answers.
+Testimonial Cards: Optional cards with a client quote and image.
+Footer Links and Contact Info: Contact information at the bottom with social links.

@@ -1,0 +1,23 @@
+---
+import AccordionItem from "../atoms/AccordionItem.astro";
+
+interface AccordianGroup{
+    question: string;
+    answer: string;
+    tags: {label:string, link:string;} [];
+}
+
+const {AccordianGroup} =Astro.props;
+
+---
+
+<div class="w-full max-w-2xl mx-auto space-y-4">
+    <!-- Mettez ici chaque instance de AccordionItem -->
+     {AccordianGroup.map( (faq: { question: string; answer: string; tags: { label: string; link: string; }[]; }) => (
+        <AccordionItem 
+        question={faq.question}
+        answer={faq.answer}
+        tags={faq.tags}
+        />
+     ))}
+</div>

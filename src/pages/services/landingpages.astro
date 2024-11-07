@@ -3,7 +3,9 @@ import HeroSection from '../../components/moleculs/HeroSection.astro';
 import SecondHero from '../../components/moleculs/SecondHero.astro';
 import ServicePacks from '../../components/moleculs/ServicePacks.astro';
 import Technologies from '../../components/moleculs/Technologies.astro';
+import TestimonialGroup from '../../components/moleculs/TestimonialGroup.astro';
 import WhySection from '../../components/moleculs/WhySection.astro';
+import Faq from '../../components/organics/Faq.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const cards = [
@@ -105,10 +107,102 @@ const servicePacks = [
     isPopular: false
   }
 ];
-
+const testimonials = [
+  {
+    name: "Jean Dupont",
+    image: "/image1.png",
+    quote: "DigiDevs nous a aidés à obtenir une page efficace et élégante, parfaite pour notre image de marque.",
+    rating: 5
+  },
+  {
+    name: "Marie Claire",
+    image: "/image2.png",
+    quote: "Grâce à DigiDevs, notre site est maintenant au niveau de nos concurrents et attire de nouveaux clients.",
+    rating: 4.5
+  },
+  {
+    name: "Jean Dupont",
+    image: "/image1.png",
+    quote: "DigiDevs nous a aidés à obtenir une page efficace et élégante, parfaite pour notre image de marque.",
+    rating: 3
+  },{
+    name: "Marie Claire",
+    image: "/image2.png",
+    quote: "Grâce à DigiDevs, notre site est maintenant au niveau de nos concurrents et attire de nouveaux clients.",
+    rating: 5
+  },
+  {
+    name: "Jean Dupont",
+    image: "/image1.png",
+    quote: "DigiDevs nous a aidés à obtenir une page efficace et élégante, parfaite pour notre image de marque.",
+    rating: 5
+  },{
+    name: "Marie Claire",
+    image: "/image2.png",
+    quote: "Grâce à DigiDevs, notre site est maintenant au niveau de nos concurrents et attire de nouveaux clients.",
+    rating: 5
+  },
+  {
+    name: "Jean Dupont",
+    image: "/image1.png",
+    quote: "DigiDevs nous a aidés à obtenir une page efficace et élégante, parfaite pour notre image de marque.",
+    rating: 5
+  },{
+    name: "Marie Claire",
+    image: "/image2.png",
+    quote: "Grâce à DigiDevs, notre site est maintenant au niveau de nos concurrents et attire de nouveaux clients.",
+    rating: 5
+  },
+  {
+    name: "Jean Dupont",
+    image: "/image1.png",
+    quote: "DigiDevs nous a aidés à obtenir une page efficace et élégante, parfaite pour notre image de marque.",
+    rating: 5
+  },{
+    name: "Marie Claire",
+    image: "/image2.png",
+    quote: "Grâce à DigiDevs, notre site est maintenant au niveau de nos concurrents et attire de nouveaux clients.",
+    rating: 5
+  },
+  {
+    name: "Jean Dupont",
+    image: "/image1.png",
+    quote: "DigiDevs nous a aidés à obtenir une page efficace et élégante, parfaite pour notre image de marque.",
+    rating: 5
+  },
+  // Add more testimonials as needed
+];
+const faqItems = [
+    {
+        question: "Combien de temps faut-il pour créer une landing page ?",
+        answer: "En général, la création d'une landing page prend entre une semaine et dix jours en fonction des exigences spécifiques et des révisions demandées.",
+        tags: [
+            { label: "Landing Pages", link: "#" },
+            { label: "Temps de Développement", link: "#" }
+        ]
+    },
+    {
+        question: "Puis-je modifier le contenu moi-même ?",
+        answer: "Oui, nous proposons des solutions qui permettent une gestion de contenu simple et intuitive pour que vous puissiez modifier le contenu de votre site vous-même.",
+        tags: [
+            { label: "Gestion de Contenu", link: "#" },
+            { label: "Autonomie", link: "#" }
+        ]
+    },
+    {
+        question: "Proposez-vous l'hébergement et le nom de domaine ?",
+        answer: "Oui, nous pouvons inclure des services d'hébergement et de gestion de nom de domaine pour vous assurer une solution complète.",
+        tags: [
+            { label: "Hébergement", link: "#" },
+            { label: "Nom de Domaine", link: "#" }
+        ]
+    },
+    // Ajoutez d'autres questions si nécessaire
+];
 
 ---
-<Layout title="Landing Pages" className='bg-neutral'> 
+<Layout title="Landing Pages" className=' bg-primary'> 
+
     <HeroSection 
     title= 'Améliorez Votre Visibilité en Ligne avec un Site Web Vitrine Professionnel!'
     subtitle = 'Découvrez comment un site web vitrine peut attirer davantage de clients et accroître votre visibilité.' 
@@ -137,12 +231,16 @@ const servicePacks = [
     height={900}
     badgeTitle="Votre succès est notre succès"
     />
+
     <Technologies title="Téchnologies" technologies={technologies} />
     <ServicePacks title="Nos Packs de Services" servicePacks={servicePacks} />
+
+    <TestimonialGroup testimonials={testimonials} />
+    <Faq faq={faqItems}/>
     <!--     <ServicesSection />
     <Stacks />
     <Packages />
-    <FAQ />
+    
     <Testimonials /> -->
-
+ 
 </Layout>

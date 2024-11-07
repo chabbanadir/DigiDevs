@@ -1,0 +1,36 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Testimonial {
+  name: string;
+  image: string;
+  quote: string;
+  rating: number;
+}
+
+const { name, image, quote, rating } = Astro.props as Testimonial;
+
+const fullStars = Math.floor(rating);
+const hasHalfStar = rating % 1 !== 0;
+const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+---
+
+<div class="bg-neutral rounded-lg p-6 shadow-md flex flex-col items-center text-center">
+  <img src={image} alt={`Photo de ${name}`} class="w-16 h-16 rounded-full mb-4" />
+  <p class="text-lg font-semibold mb-2">{name}</p>
+  <p class="text-sm text-dark-gray italic mb-4">"{quote}"</p>
+  
+  <div class="flex justify-center mb-2 space-x-1">
+    {Array.from({ length: fullStars }).map((_, index) => (
+      <Icon name="mdi:star" class="w-5 h-5 text-yellow-500" />
+    ))}
+
+    {hasHalfStar && (
+      <Icon name="mdi:star-half-full" class="w-5 h-5 text-yellow-500" />
+    )}
+
+    {Array.from({ length: emptyStars }).map((_, index) => (
+      <Icon name="mdi:star-outline" class="w-5 h-5 text-yellow-500" />
+    ))}
+  </div>
+</div>

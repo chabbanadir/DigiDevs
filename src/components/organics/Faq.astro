@@ -1,0 +1,22 @@
+---
+import AccordionGroup from "../moleculs/AccordionGroup.astro";
+import { Image } from 'astro:assets';
+interface Faq {
+    question : string;
+    answer: string;
+    tags: {label: string, link:string } [];
+}
+const { faq } =Astro.props as { faq: Faq [] };
+
+---
+<section class="py-12 px-24 space-x-24 md:flex md:items-center md:justify-between">
+    <!-- Accordion Group -->
+    <div class="w-full md:w-2/3 space-y-4">
+        <AccordionGroup AccordianGroup={faq} />
+    </div>
+
+    <!-- Illustration (hidden on mobile) -->
+    <div class="hidden md:block md:justify-center ">
+        <Image src="/public/illustration/marchés.png" alt="Illustration FAQ"} width={900} height={900} class="rounded-lg" />
+      </div>
+</section>

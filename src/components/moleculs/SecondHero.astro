@@ -15,14 +15,14 @@ interface Props {
 const {title= 'title', altImg= 'alt',subtitle = 'subtitle' , img='/illutration/HeroImage.png',height =500,width=500 ,badgeTitle}= Astro.props
 
 ---
-<section class="grid gap-8 sm:grid-cols-2 items-center bg-gradient-to-r from-primary to-dark-gray text-neutral p-12 shadow-lg">
-  <div class="space-y-4">
+<section class="sm:min-h-screen md:flex md:items-start md:justify-between sm:px-24  bg-primary  text-neutral p-12">
+  <div class="w-full md:w-2/3 space-y-4">
     <Badge title={badgeTitle} variant="dark-gray" />
 
-    <h2 class="text-3xl font-bold text-accent">{title}</h2>    
-    <span class="text-lg text-neutral">{subtitle}</span>
+    <h2 class="sm:text-5xl text-2xl font-bold text-accent">{title}</h2>    
+    <span class="sm:text-lg text-sm text-neutral">{subtitle}</span>
   </div>
-  <div class="flex justify-center sm:justify-end">
+  <div class="hidden md:block ">
     <Image src={img} alt={altImg} width={width} height={height} class="rounded-lg" />
   </div>
 </section>

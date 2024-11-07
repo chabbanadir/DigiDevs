@@ -1,0 +1,74 @@
+---
+interface Props{
+    question: string;
+    answer: string;
+    tags: {label:string, link:string;} [];
+}
+const {question, answer, tags} =Astro.props;
+
+---
+
+<div class="border border-light-gray rounded-lg overflow-hidden">
+    <!-- Header (Question) -->
+    <button
+        class="flex items-center justify-between w-full p-4 bg-primary text-white hover:bg-secondary transition-colors duration-300 focus:outline-none"
+        aria-expanded=false
+        aria-controls="answer-id"
+    >
+        <span class="font-semibold">{question}</span>
+        <span class="transition-transform transform rotate-0">+</span> <!-- Icone de transition -->
+    </button>
+
+    <!-- Content (Answer) -->
+    <div
+    id="answer-id"
+    class="p-4 bg-neutral  text-dark-gray transition-max-height duration-300 ease-in-out "
+>
+        <!-- Contenu de la réponse -->
+        <p>{answer}</p>
+        <div class="flex space-x-2 mt-2">
+            <!-- Tag Cliquable -->
+             {tags.map(tag => (
+                <a href={tag.link} class="text-accent hover:underline">{tag.label}</a>
+             ))}
+            <!-- Ajoutez d'autres tags si nécessaire -->
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('button[aria-expanded]').forEach(button => {
+        button.setAttribute('aria-expanded', 'false');
+        const content = button.nextElementSibling as HTMLElement;
+        if (content) {
+            content.style.display = 'none'; // Ensure all content is hidden on load
+        }
+    });
+});
+
+    document.querySelectorAll('button[aria-expanded]').forEach(button => {
+    button.addEventListener('click', () => {
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        
+        // Close all other accordion items
+        document.querySelectorAll('button[aria-expanded="true"]').forEach(openButton => {
+            if (openButton !== button) {
+                openButton.setAttribute('aria-expanded', 'false');
+                const openContent = openButton.nextElementSibling as HTMLElement | null;
+                if (openContent) {
+                    openContent.style.display = 'none'; // Hide other open content
+                }
+            }
+        });
+
+        // Toggle the clicked item
+        button.setAttribute('aria-expanded', String(!isExpanded));
+        const content = button.nextElementSibling as HTMLElement | null;
+        if (content) {
+            content.style.display = isExpanded ? 'none' : 'block'; // Simple toggle
+        }
+    });
+});
+
+
+</script>

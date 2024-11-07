@@ -10,13 +10,12 @@ interface Technology {
 
 const { technologies ,title}= Astro.props;
 ---
-
-<section class="p-6 sm:p-12 bg-gradient-to-r from-primary to-dark-gray text-neutral">
+<section class="sm:p-12 bg-dark-gray text-neutral">
   <h2 class="text-3xl sm:text-4xl font-bold text-accent mb-8 text-center">{title}</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center">
     {technologies.map((tech: { icon: any; name: unknown; description: unknown; }) => (
-      <div class="group [perspective:1000px]">
-        <div class="relative h-48 w-full [transform-style:preserve-3d] transition-transform duration-500 group-hover:[transform:rotateY(180deg)]">
+      <div class="group [perspective:1000px] w-full flex justify-center">
+        <div class="relative h-48 w-full max-w-xs [transform-style:preserve-3d] transition-transform duration-500 group-hover:[transform:rotateY(180deg)]">
           
           <!-- Face Avant -->
           <div class="absolute inset-0 bg-neutral p-4 rounded-lg shadow-md flex flex-col items-center justify-center [backface-visibility:hidden]">
@@ -25,7 +24,7 @@ const { technologies ,title}= Astro.props;
           </div>
           
           <!-- Face Arrière -->
-          <div class="absolute inset-0 bg-dark-gray p-4 rounded-lg shadow-md flex items-center justify-center text-light-gray [transform:rotateY(180deg)] [backface-visibility:hidden]">
+          <div class="absolute inset-0 bg-accent p-4 rounded-lg shadow-md flex items-center justify-center text-neutral [transform:rotateY(180deg)] [backface-visibility:hidden]">
             <p class="text-base text-center">{tech.description}</p>
           </div>
         </div>

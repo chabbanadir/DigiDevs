@@ -15,19 +15,28 @@ interface Props {
 const { title = 'title', description = 'description', cardData,badgeTitle } = Astro.props;
 ---
 
-<section class="bg-gradient-to-r from-primary to-dark-gray text-neutral p-6 sm:p-12 shadow-lg min-h-screen">
-  <!-- Title and Description Section -->
-  <Badge title={badgeTitle} variant="primary" />
-  <div class="flex flex-col sm:flex-row sm:justify-between gap-8 mb-8">
-    <div class="sm:w-1/2">
-      <h2 class="text-3xl font-bold text-accent">{title}</h2>
+<section class="sm:min-h-screen bg-primary text-neutral p-12 sm:px-24 space-y-8">
+  <!-- Ligne 1 : Badge, Titre et Description en deux colonnes -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+    <!-- Colonne 1 : Badge et Titre -->
+    <div class="gap-4">
+      <!-- Conteneur du Badge, sans `flex flex-col` -->
+      <Badge title="Expertise. Stratégie. Succès." variant="dark-gray" />
+    
+      <!-- Conteneur pour le titre et le paragraphe -->
+      <div class="flex flex-col">
+        <h2 class="text-3xl font-bold text-accent">{title}</h2>
+      </div>
     </div>
-    <div class="sm:w-1/2">
-      <p class="text-lg text-neutral">{description}</p>
+    
+    <!-- Colonne 2 : Description -->
+    <div>
+      <p class="text-lg">{description}</p>
     </div>
   </div>
-  
-  <!-- Cards Section -->
+
+
+  <!-- Ligne 2 : Section des Cartes -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
     {cardData.map((card, index) => (
       <Card
