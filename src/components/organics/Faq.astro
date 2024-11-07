@@ -1,4 +1,5 @@
 ---
+import Badge from "../atoms/Badge.astro";
 import AccordionGroup from "../moleculs/AccordionGroup.astro";
 import { Image } from 'astro:assets';
 interface Faq {
@@ -9,9 +10,11 @@ interface Faq {
 const { faq } =Astro.props as { faq: Faq [] };
 
 ---
+
 <section class="py-12 px-24 space-x-24 md:flex md:items-center md:justify-between">
     <!-- Accordion Group -->
     <div class="w-full md:w-2/3 space-y-4">
+        <Badge title="Le témoignage de nos partenaires." variant="dark-gray" />
         <AccordionGroup AccordianGroup={faq} />
     </div>
 
