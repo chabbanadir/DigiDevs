@@ -1,0 +1,313 @@
+---
+import CollaborationTimeline from "../../components/moleculs/CollaborationTimeline.astro";
+import HeroSection from "../../components/moleculs/HeroSection.astro";
+import ProcessSteps from "../../components/moleculs/ProcessSteps.astro";
+import SecondHero from "../../components/moleculs/SecondHero.astro";
+import StrengthsGrid from "../../components/moleculs/StrengthsGrid.astro";
+import Technologies from "../../components/moleculs/Technologies.astro";
+import TestimonialGroup from "../../components/moleculs/TestimonialGroup.astro";
+import WhySection from "../../components/moleculs/WhySection.astro";
+import Faq from "../../components/organics/Faq.astro";
+import Layout from "../../layouts/Layout.astro";
+const cards = [
+  {
+    icon: "mdi:car-speed-limiter",
+    title: "Optimisation des Processus Métiers",
+    description: "Développez des applications qui améliorent les opérations et réduisent les coûts grâce à l’automatisation."
+  },
+  {
+    icon: "mdi:television-guide",
+    title: "Interfaces Intuitives et Modernes",
+    description: "Des designs UX/UI soignés pour une expérience utilisateur engageante et intuitive."
+  },
+  {
+    icon: "mdi:cloud-upload",
+    title: "Scalabilité Assurée",
+    description: "Solutions évolutives pour accompagner votre croissance future sans compromis sur la performance."
+  },
+  {
+    icon: "mdi:cloud-lock",
+    title: "Sécurité et Performances Optimales",
+    description: "Mise en place de protocoles avancés pour assurer la sécurité et la rapidité de vos applications."
+  },
+];
+const technologies = [
+  {
+    name: "Astro.js",
+    icon: "technologie/astrojs",
+    description: "Framework pour des applications statiques rapides et efficaces."
+  },
+  {
+    name: "Vue.js",
+    icon: "technologie/vue",
+    description: "Création d'interfaces modulaires et réactives pour des applications web."
+  },
+  {
+    name: "Angular",
+    icon: "technologie/angular",
+    description: "Framework robuste pour des applications web complexes et performantes."
+  },
+  {
+    name: "Node.js",
+    icon: "technologie/nodejs",
+    description: "Développement de back-end léger et performant pour une réponse rapide."
+  },
+  {
+    name: "Python (Django, Flask)",
+    icon: "technologie/python",
+    description: "Développement rapide et flexible pour des solutions web robustes."
+  },
+  {
+    name: "Java",
+    icon: "technologie/java",
+    description: "Solution d’entreprise sécurisée et évolutive pour les besoins complexes."
+  },
+  {
+    name: ".NET",
+    icon: "technologie/dotnet",
+    description: "Plateforme Microsoft pour des applications puissantes et fiables."
+  }
+];
+const testimonials = [
+  {
+    name: "Jean Dupont",
+    image: "/image1.png",
+    quote: "DigiDevs nous a aidés à obtenir une page efficace et élégante, parfaite pour notre image de marque.",
+    rating: 5
+  },
+  {
+    name: "Marie Claire",
+    image: "/image2.png",
+    quote: "Grâce à DigiDevs, notre site est maintenant au niveau de nos concurrents et attire de nouveaux clients.",
+    rating: 4.5
+  },
+  {
+    name: "Jean Dupont",
+    image: "/image1.png",
+    quote: "DigiDevs nous a aidés à obtenir une page efficace et élégante, parfaite pour notre image de marque.",
+    rating: 3
+  },{
+    name: "Marie Claire",
+    image: "/image2.png",
+    quote: "Grâce à DigiDevs, notre site est maintenant au niveau de nos concurrents et attire de nouveaux clients.",
+    rating: 5
+  },
+  {
+    name: "Jean Dupont",
+    image: "/image1.png",
+    quote: "DigiDevs nous a aidés à obtenir une page efficace et élégante, parfaite pour notre image de marque.",
+    rating: 5
+  },{
+    name: "Marie Claire",
+    image: "/image2.png",
+    quote: "Grâce à DigiDevs, notre site est maintenant au niveau de nos concurrents et attire de nouveaux clients.",
+    rating: 5
+  },
+  {
+    name: "Jean Dupont",
+    image: "/image1.png",
+    quote: "DigiDevs nous a aidés à obtenir une page efficace et élégante, parfaite pour notre image de marque.",
+    rating: 5
+  },{
+    name: "Marie Claire",
+    image: "/image2.png",
+    quote: "Grâce à DigiDevs, notre site est maintenant au niveau de nos concurrents et attire de nouveaux clients.",
+    rating: 5
+  },
+  {
+    name: "Jean Dupont",
+    image: "/image1.png",
+    quote: "DigiDevs nous a aidés à obtenir une page efficace et élégante, parfaite pour notre image de marque.",
+    rating: 5
+  },{
+    name: "Marie Claire",
+    image: "/image2.png",
+    quote: "Grâce à DigiDevs, notre site est maintenant au niveau de nos concurrents et attire de nouveaux clients.",
+    rating: 5
+  },
+  {
+    name: "Jean Dupont",
+    image: "/image1.png",
+    quote: "DigiDevs nous a aidés à obtenir une page efficace et élégante, parfaite pour notre image de marque.",
+    rating: 5
+  },
+  // Add more testimonials as needed
+];
+const faqItems = [
+    {
+        question: "Comment la méthodologie PSD va-t-elle bénéficier à mon entreprise ?",
+        answer: "La PSD simplifie et digitalise vos processus, augmentant l'efficacité opérationnelle et réduisant les coûts.",
+        tags: [
+            { label: "Méthodologie PSD", link: "#" },
+            { label: "Digitalisation", link: "#" }
+        ]
+    },
+    {
+        question: "Combien de temps dure le développement d'une application avec l'approche PSD ?",
+        answer: "La durée dépend de la complexité. Après l'analyse initiale, nous fournissons un calendrier précis.",
+        tags: [
+            { label: "Développement", link: "#" },
+            { label: "Méthodologie PSD", link: "#" }
+        ]
+    },
+    {
+        question: "Pouvez-vous intégrer la nouvelle solution avec nos systèmes existants ?",
+        answer: "Oui, nous assurons l'intégration fluide avec vos infrastructures pour une transition réussie.",
+        tags: [
+            { label: "Intégration", link: "#" },
+            { label: "Systèmes Existants", link: "#" }
+        ]
+    },
+    // Ajoutez d'autres questions si nécessaire
+];
+const psdApproachSteps = [
+  {
+    title: "Analyse et Diagnostic",
+    description: "Audit et cartographie des processus actuels pour identifier les inefficacités.",
+    icon: "mdi:magnify"  // Icone de loupe pour l'analyse
+  },
+  {
+    title: "Simplification des Processus",
+    description: "Refonte et standardisation pour accroître l'efficacité.",
+    icon: "mdi:filter-outline"  // Icone de filtre pour simplification
+  },
+  {
+    title: "Conception de la Solution Digitale",
+    description: "Architecture technique et choix technologiques adaptés.",
+    icon: "mdi:application-outline"  // Icone d'application pour la conception
+  },
+  {
+    title: "Développement et Intégration",
+    description: "Création et intégration de l'application dans vos systèmes existants.",
+    icon: "mdi:code-tags"  // Icone de code pour développement
+  },
+  {
+    title: "Tests et Validation",
+    description: "Validation fonctionnelle et retour utilisateur pour un produit parfait.",
+    icon: "mdi:check-circle-outline"  // Icone de validation
+  },
+  {
+    title: "Déploiement et Formation",
+    description: "Mise en production et formation des équipes pour une adoption réussie.",
+    icon: "mdi:rocket-launch-outline"  // Icone de fusée pour déploiement
+  },
+  {
+    title: "Suivi et Amélioration Continue",
+    description: "Support et évolutions pour une solution toujours à jour.",
+    icon: "mdi:progress-check"  // Icone de suivi et amélioration
+  }
+];
+const collaborationProcess = [
+  {
+    title: "Prise de Contact",
+    description: "Première rencontre pour comprendre vos besoins.",
+    icon: "mdi:account-box-outline"  // Icone de profil pour prise de contact
+  },
+  {
+    title: "Étude Préliminaire avec Approche PSD",
+    description: "Analyse de vos processus métiers et identification des simplifications possibles.",
+    icon: "mdi:clipboard-text-outline"  // Icone de clipboard pour étude
+  },
+  {
+    title: "Proposition Commerciale",
+    description: "Envoi d’un devis et d’un plan de projet.",
+    icon: "mdi:file-document-outline"  // Icone de document pour devis
+  },
+  {
+    title: "Lancement du Projet",
+    description: "Début des travaux après la signature du contrat.",
+    icon: "mdi:play-circle-outline"  // Icone de play pour lancement
+  },
+  {
+    title: "Suivi du Projet",
+    description: "Points réguliers pour faire le suivi et intégrer les retours.",
+    icon: "mdi:timeline-clock-outline"  // Icone de timeline pour suivi
+  },
+  {
+    title: "Livraison et Formation",
+    description: "Remise du produit final et formation des équipes.",
+    icon: "mdi:school-outline"  // Icone d'école pour formation
+  },
+  {
+    title: "Support Continu",
+    description: "Assistance post-lancement pour assurer le succès à long terme.",
+    icon: "mdi:lifebuoy"  // Icone de bouée pour support continu
+  }
+];
+const strengths = [
+  {
+    title: "Expertise en Transformation Digitale",
+    description: "Compétences reconnues en simplification et digitalisation des processus métiers.",
+    icon: "mdi:autorenew"  // Icon to represent transformation or renewal
+  },
+  {
+    title: "Approche Personnalisée",
+    description: "Solutions sur mesure conçues spécifiquement pour répondre à vos défis.",
+    icon: "mdi:account-cog"  // Icon representing personalization and settings
+  },
+  {
+    title: "Engagement Qualité",
+    description: "Respect des délais et des standards de qualité les plus élevés.",
+    icon: "mdi:medal-outline"  // Icon representing a medal for quality or achievement
+  },
+  {
+    title: "Collaboration Étendue",
+    description: "Partenariat avec vos équipes pour assurer le succès du projet.",
+    icon: "mdi:handshake"  // Icon representing collaboration and partnership
+  }
+];
+
+---
+<Layout title="Développement Front-End & Back-End" className=' bg-primary'> 
+
+    <HeroSection 
+    title= 'Concevez des Applications Web Performantes avec DigiDevs'
+    subtitle = 'Découvrez comment notre approche PSD simplifie et digitalise vos processus métiers pour des applications web sur mesure.' 
+    img='/illustration/HeroSection.png'
+    altImg='Développement Hero'
+    width={900}
+    height={900}
+    btnTitle="Contactez-Nous pour un Devis"
+    btnclassName="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-2 px-6 rounded-full shadow-lg transform transition hover:scale-105"
+    badgeTitle="Innover pour Votre Croissance"
+    />
+
+    <WhySection 
+    title='Pourquoi Choisir le Développement Front-End & Back-End ?'
+    description="Dans un monde digital, des applications performantes sont essentielles pour optimiser vos processus et renforcer votre compétitivité. Nos solutions sur mesure s’adaptent à vos besoins pour une scalabilité optimale." 
+    cardData={cards}
+    />
+    <SecondHero 
+    title= 'Les Caractéristiques de Nos Solutions'
+    subtitle = "Nos solutions de développement front-end et back-end sont pensées pour assurer une expérience utilisateur de qualité, la sécurité et la performance." 
+    img='/illustration/Avantages.png'
+    altImg='Développement Hero'
+    width={900}
+    height={900}
+    badgeTitle="Votre Succès, Notre Engagement"
+    />
+    <ProcessSteps
+    title="Notre Approche PSD"
+    subtitle="Une méthodologie en plusieurs étapes pour optimiser vos processus métiers"
+    steps={psdApproachSteps}
+    />
+    <StrengthsGrid
+    title="Nos Points Forts"
+    subtitle="Pourquoi nous choisir pour vos projets de développement"
+    strengths={strengths}
+    />
+    <CollaborationTimeline
+    title="Processus de Collaboration"
+    subtitle="Une approche en étapes pour assurer le succès de votre projet"
+    steps={collaborationProcess}
+    />
+  
+   
+    <Faq faq={faqItems}/> 
+
+    <Technologies title="Technologies Utilisées" technologies={technologies} />
+
+
+    <TestimonialGroup testimonials={testimonials} />
+
+</Layout>

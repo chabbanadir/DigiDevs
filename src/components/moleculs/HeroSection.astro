@@ -16,17 +16,88 @@ interface Props {
   badgeTitle:string;
 }
 const {title= 'title', altImg= 'alt',subtitle = 'subtitle' , img='/illutration/HeroImage.png',height =500,width=500 ,btnTitle,btnclassName,badgeTitle}= Astro.props
-
 ---
-<section class="sm:min-h-screen md:flex md:items-start md:justify-between sm:px-24 bg-primary  text-neutral p-12">
-  <div class="w-full md:w-2/3 space-y-4">
-    <Badge title={badgeTitle} variant="dark-gray" />
 
+<style>
+  /* Initial hidden state for animations */
+  .hidden-animation {
+    opacity: 0;
+  }
+
+  /* Fade-in and zoom for the image */
+  .fade-in-zoom {
+    animation: fadeZoomIn 1s forwards;
+  }
+
+  @keyframes fadeZoomIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Pop-up from bottom for the text section */
+  .pop-up-bottom {
+    animation: popUpBottom 1s ease-out forwards;
+  }
+
+  @keyframes popUpBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<section class="sm:min-h-screen md:flex md:items-start md:justify-between sm:px-24 bg-primary text-neutral p-12">
+  <!-- Text Section with Bottom-Up Pop Animation -->
+  <div class="w-full md:w-2/3 space-y-4 hidden-animation" id="text-section">
+    <Badge title={badgeTitle} variant="dark-gray" />
     <h1 class="sm:text-5xl text-2xl font-bold text-accent">{title}</h1>    
     <span class="sm:text-lg text-sm text-neutral">{subtitle}</span>
     <Btn title={btnTitle} className={`${btnclassName} block bg-accent hover:bg-secondary text-neutral font-medium py-2 px-4 rounded`} />
   </div>
-  <div class="hidden md:block justify-center sm:justify-end">
+
+  <!-- Image Section with Fade-In Zoom Animation -->
+  <div class="hidden md:block justify-center sm:justify-end hidden-animation" id="image-section">
     <Image src={img} alt={altImg} width={width} height={height} class="rounded-lg" />
   </div>
 </section>
+
+<script>
+ document.addEventListener('DOMContentLoaded', () => {
+  const textSection = document.getElementById('text-section');
+  const imageSection = document.getElementById('image-section');
+
+  const observerOptions = {
+    threshold: 0.5
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (entry.target === textSection) {
+          textSection?.classList.remove('hidden-animation'); // Optional chaining
+          textSection?.classList.add('pop-up-bottom');
+        } else if (entry.target === imageSection) {
+          imageSection?.classList.remove('hidden-animation');
+          imageSection?.classList.add('fade-in-zoom');
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  textSection && observer.observe(textSection);
+  imageSection && observer.observe(imageSection);
+});
+
+</script>

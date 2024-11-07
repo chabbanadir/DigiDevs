@@ -1,19 +1,17 @@
 ---
-interface Props {
-  key?: number;
-  title?: string;
-  description?: string;
-  icon?: string;
-  className?: string;
-
-}
 import { Icon } from 'astro-icon/components';
-const { icon, title, description, className } = Astro.props;
+
+const { icon, title, description, className = "" } = Astro.props;
 ---
 
-<div class={`relative group flex flex-col items-center text-center bg-neutral/90  border border-light-gray rounded-lg shadow-md hover:bg-neutral hover:shadow-lg transition-shadow ${className}`}>
-  <Icon name={icon} class="text-6xl text-accent group-hover:text-primary mb-4 " />
-  <h3 class="text-xl font-semibold text-accent mb-2">{title}</h3>
-  <p class="text-base text-dark-gray group-hover:text-primary">{description}</p>
-  <slot />
+<div class={`p-6 bg-neutral rounded-lg shadow-md group hover:bg-accent transition-all duration-300 ${className}`}>
+  <div class="text-3xl text-accent transition-colors duration-300 group-hover:text-neutral">
+    <Icon name={icon} />
+  </div>
+  <h3 class="text-xl font-semibold text-dark-gray mt-4 transition-colors duration-300 group-hover:text-neutral">
+    {title}
+  </h3>
+  <p class="text-gray-600 mt-2 transition-colors duration-300 group-hover:text-neutral">
+    {description}
+  </p>
 </div>

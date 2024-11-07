@@ -1,0 +1,27 @@
+---
+import { Icon } from 'astro-icon/components';
+
+// Props
+const { steps, title, subtitle } = Astro.props;
+---
+
+<section class="process-steps p-12 sm:px-24 bg-primary">
+  <h2 class="text-3xl font-bold mb-4 text-center text-accent">{title}</h2>
+  <p class="mb-8 text-light-gray text-center">{subtitle}</p>
+  
+  <ol class="relative border-l border-gray-200 dark:border-gray-700 ml-6">
+    {steps.map((step: { icon: any; title: unknown; description: unknown; }, index: any) => (
+      <li class="mb-10 ml-8">
+        <!-- Cercle avec icône -->
+        <span class="absolute flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full -left-4 ring-8 ring-primary dark:ring-gray-900 dark:bg-blue-900">
+          <Icon name={step.icon} class="w-4 h-4 text-blue-800 dark:text-blue-300" />
+        </span>
+        
+        <!-- Titre et Description -->
+        <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">{step.title}</h3>
+        
+        <p class="text-base font-normal text-gray-500 dark:text-gray-400">{step.description}</p>
+      </li>
+    ))}
+  </ol>
+</section>

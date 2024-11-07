@@ -2,16 +2,17 @@
 interface Props {
   title: string;
   variant?: 'primary' | 'dark-gray';
+  className?: string;
 }
 
-const { title = "Default Text", variant = 'primary' } = Astro.props;
+const { title = "Default Text", variant = 'primary' ,className} = Astro.props;
 
 const bgColor = variant === 'primary' ? 'bg-primary' : 'bg-dark-gray';
 const textColor = variant === 'primary' ? 'text-neutral' : 'text-light-gray';
 const borderColor = variant === 'primary' ? 'border-accent' : 'border-light-gray';
 ---
 
-<div class={`inline-block px-3 py-1 text-sm font-semibold ${textColor} ${borderColor} border rounded-full ${bgColor}/20`}>
+<div class={`inline-block px-3 py-1 text-sm font-semibold ${textColor} ${borderColor}  ${className} border rounded-full ${bgColor}/20`}>
   {title}
 </div>
   
