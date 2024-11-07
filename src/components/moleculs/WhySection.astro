@@ -8,11 +8,10 @@ interface Props {
   cardData: { icon: string; title: string; description: string }[];
   className?: string;
   cardClassName?: string;
-  badgeTitle: string;
 
 }
 
-const { title = 'title', description = 'description', cardData,badgeTitle } = Astro.props;
+const { title = 'title', description = 'description', cardData } = Astro.props;
 ---
 
 <section class="sm:min-h-screen bg-primary text-neutral p-12 sm:px-24 space-y-8">

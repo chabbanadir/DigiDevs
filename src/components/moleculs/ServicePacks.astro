@@ -14,7 +14,7 @@ const { servicePacks, title } = Astro.props;
 <section class=" text-neutral py-12 sm:px-24">
     <h2 class="text-4xl font-bold text-center text-accent mb-8">{title}</h2>
     <div class="flex flex-col lg:flex-row  justify-center items-center space-y-6 lg:space-y-0 ">
-      {servicePacks.map((pack: ServicePack, index: number) => (
+      {servicePacks.map((pack: ServicePack) => (
         <div class={`relative flex flex-col items-center text-center  p-8 rounded-lg shadow-lg transition-transform duration-300 w-full max-w-sm 
           ${pack.isPopular ? 'scale-105 hover:scale-110 z-10 border-4 border-accent shadow-xl' : 'bg-dark-gray'} 
           ${pack.isPopular ? 'bg-dark-gray border-gradient-to-r from-blue-500 to-blue-600' : 'bg-dark-gray'}`}>

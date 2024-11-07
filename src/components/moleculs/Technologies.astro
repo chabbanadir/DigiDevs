@@ -8,7 +8,7 @@ interface Technology {
    
 }
 
-const { technologies ,title}= Astro.props;
+const { technologies ,title}= Astro.props as {technologies: Technology [], title:string}; 
 ---
 <section class="sm:p-12 bg-dark-gray text-neutral">
   <h2 class="text-3xl sm:text-4xl font-bold text-accent mb-8 text-center">{title}</h2>

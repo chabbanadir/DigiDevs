@@ -11,12 +11,11 @@ interface Props {
   subtitle?: string
   width?: number; 
   height?: number; 
-  className?: string;
   btnTitle?:string;
   btnclassName?: string;
   badgeTitle:string;
 }
-const {title= 'title', altImg= 'alt',subtitle = 'subtitle' , img='/illutration/HeroImage.png',height =500,width=500 ,className,btnTitle,btnclassName,badgeTitle}= Astro.props
+const {title= 'title', altImg= 'alt',subtitle = 'subtitle' , img='/illutration/HeroImage.png',height =500,width=500 ,btnTitle,btnclassName,badgeTitle}= Astro.props
 
 ---
 <section class="sm:min-h-screen md:flex md:items-start md:justify-between sm:px-24 bg-primary  text-neutral p-12">
