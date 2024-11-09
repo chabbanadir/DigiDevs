@@ -1,30 +1,36 @@
 ---
 import { Image } from 'astro:assets';
 import Btn from '../atoms/Btn.astro';
-import { Icon } from 'astro-icon/components'
+import { Icon } from 'astro-icon/components';
 
-const {links} =Astro.props
+const { links } = Astro.props;
 ---
 
-<nav class="bg-primary px-12">
+<nav class="bg-primary px-4 sm:px-12 py-4">
   <div class="container mx-auto flex items-center justify-between">
-    <Image src="/Logo.png" alt="A bird sitting on a nest of eggs." width={70} height={70} />
+    <!-- Logo -->
+    <Image src="/Logo.png" alt="A bird sitting on a nest of eggs." width={50} height={50} />
 
-    <div class="gap-8 flex flex-col sm:flex-row items-center">
+    <!-- Hamburger Icon for Mobile (Only visible on mobile screens) -->
+    <button id="nav-toggle" class="block sm:hidden text-neutral focus:outline-none">
+      <Icon name="mdi:menu" size="24" />
+    </button>
+
+    <!-- Desktop Navbar Links (Visible only on screens sm and up) -->
+    <div id="nav-content" class="hidden sm:flex sm:flex-row flex-col sm:gap-8 flex-1 items-center sm:justify-center">
       {links.map((link: { href: string | URL | null | undefined; icon: any; label: unknown; subitems: any[]; }) => (
         <div class="relative group">
           <a href={link.href} class="text-neutral hover:text-accent flex items-center gap-2">
             <Icon name={link.icon} class="group-hover:text-accent" />
             {link.label}
-            {/* Arrow icon for dropdown */}
             {link.subitems && <Icon name="mdi:chevron-down" class="group-hover:text-accent" />}
           </a>
 
           {/* Dropdown menu */}
           {link.subitems && (
-            <div class="hidden group-hover:block absolute left-0 z-10 divide-y divide-gray-100 rounded shadow w-max ">
+            <div class="hidden group-hover:block absolute left-0 z-20 w-max bg-primary text-neutral divide-y divide-gray-100 rounded shadow-lg">
               {link.subitems.map((sublink: { href: string | URL | null | undefined; icon: any; label: unknown; }) => (
-                <a href={sublink.href} class="flex items-center gap-2 p-4 hover:text-accent text-neutral bg-primary">
+                <a href={sublink.href} class="flex items-center gap-2 px-4 py-2 hover:text-accent">
                   <Icon name={sublink.icon} class="hover:text-accent" />
                   {sublink.label}
                 </a>
@@ -35,11 +41,53 @@ const {links} =Astro.props
       ))}
     </div>
 
+    <!-- Estimate Button (Visible only on screens sm and up) -->
+    <div class="hidden sm:block">
+      <Btn 
+        title="Estimez votre projet"
+        className="text-neutral shadow-lg border rounded-lg border-accent hover:border-neutral hover:bg-neutral hover:text-primary p-2"
+      />
+    </div>
+  </div>
+
+  <!-- Mobile Menu (Hidden by default, visible only on mobile screens) -->
+  <div id="mobile-menu" class="sm:hidden bg-primary text-neutral hidden flex-col items-center space-y-4 px-6 pt-4 pb-8">
+    {links.map((link: { href: string | URL | null | undefined; icon: any; label: unknown; subitems: any[]; }) => (
+      <div>
+        <a href={link.href} class="flex items-center gap-2">
+          <Icon name={link.icon} />
+          {link.label}
+        </a>
+        {link.subitems && (
+          <div class="ml-4 space-y-2 mt-2">
+            {link.subitems.map((sublink: { href: string | URL | null | undefined; icon: any; label: unknown; }) => (
+              <a href={sublink.href} class="flex items-center gap-2 text-sm pl-2">
+                <Icon name={sublink.icon} />
+                {sublink.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    ))}
+    <!-- Mobile Estimate Button -->
     <Btn 
-    title="Estimez votre projet"
-    className="text-neutral shadow-lg border rounded-lg border-accent hover:border-neutral hover:bg-neutral hover:text-primary  p-2"
+      title="Estimez votre projet"
+      className="w-full text-neutral shadow-lg border rounded-lg border-accent hover:border-neutral hover:bg-neutral hover:text-primary p-2 mt-4"
     />
   </div>
 </nav>
 
+<!-- JavaScript to Toggle Mobile Menu -->
+<script>
+  document.getElementById("nav-toggle")?.addEventListener("click", function() {
+    const mobileMenu = document.getElementById("mobile-menu");
 
+    // Toggle the display of the mobile menu
+    if (mobileMenu?.classList.contains("hidden")) {
+      mobileMenu.classList.remove("hidden");
+    } else {
+      mobileMenu?.classList.add("hidden");
+    }
+  });
+</script>
