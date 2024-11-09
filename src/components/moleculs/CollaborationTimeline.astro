@@ -10,7 +10,7 @@ const { steps, title, subtitle } = Astro.props;
   <p class="mb-8 text-light-gray text-center">{subtitle}</p>
   
   <ol class="relative border-l border-gray-200 dark:border-gray-700 ml-6">
-    {steps.map((step: { icon: any; title: unknown; description: unknown; }, index: any) => (
+    {steps.map((step: { icon: any; title: unknown; description: unknown; }) => (
       <li class="mb-10 ml-8">
         <!-- Cercle avec icône -->
         <span class="absolute flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full -left-4 ring-8 ring-primary dark:ring-gray-900 dark:bg-blue-900">
