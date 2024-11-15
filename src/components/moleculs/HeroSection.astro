@@ -61,13 +61,13 @@ const {title= 'title', altImg= 'alt',subtitle = 'subtitle' , img='/illutration/H
   <!-- Text Section with Bottom-Up Pop Animation -->
   <div class="w-full md:w-2/3 space-y-4 hidden-animation " id="text-section">
     <Badge title={badgeTitle} variant="dark-gray" />
-    <h1 class="sm:text-5xl text-2xl font-bold text-accent">{title}</h1>    
+    <h1 class="sm:text-5xl text-2xl font-bold text-accent pb-12">{title}</h1>    
     <span class="sm:text-lg text-sm text-neutral">{subtitle}</span>
-    <Btn title={btnTitle} className={`${btnclassName} block bg-accent hover:bg-secondary text-neutral font-medium py-2 px-4 rounded`} />
+    <Btn  title={btnTitle} className={`${btnclassName} block bg-accent hover:bg-secondary text-neutral font-medium py-2 px-4 rounded`} />
   </div>
 
   <!-- Image Section with Fade-In Zoom Animation -->
-  <div class="hidden md:block justify-center sm:justify-end hidden-animation" id="image-section">
+  <div class=" md:block justify-center sm:justify-end hidden-animation" id="image-section">
     <Image src={img} alt={altImg} width={width} height={height} class="rounded-lg" />
   </div>
 </section>

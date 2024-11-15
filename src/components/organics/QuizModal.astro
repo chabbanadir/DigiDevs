@@ -1,0 +1,132 @@
+---
+import { type Quiz } from '../../types/types.ts';
+import { Icon } from 'astro-icon/components';
+const { quiz } = Astro.props as { quiz: Quiz };
+
+
+---
+
+<div id="quizModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50" style="display: none;">
+  <div class="quiz-container p-2.5 bg-white rounded-lg shadow-md max-w-md text-left">
+    <section class="bg-primary text-neutral p-6">
+      <h1 class="text-secondary text-3xl font-bold">{quiz.title}</h1>
+      <p class="text-neutral mb-4">{quiz.description}</p>
+      <form id="quizForm">
+        {quiz.questions.map((question, index) => (
+          <div id={`question-${index}`} class="mb-6 question" hidden>
+            <h2 class="flex items-center text-accent text-xl font-semibold mb-2">
+              <Icon name={question.icon} size="24" class="mr-2"/>
+              {question.query}
+            </h2>
+            {question.options.map((option) => (
+              <label class="block my-1">
+                <input 
+                  type={question.type === 'single' ? 'radio' : 'checkbox'}
+                  name={question.type === 'single' ? `question-${index}` : `question-${index}-option-${option.value}`}
+                  value={option.value}
+                  class="mr-2"
+                />
+                {option.text}
+              </label>
+            ))}
+            {question.inputField && (
+            <input 
+              type="text" 
+              name={`question-${index}-custom`}
+              placeholder="Votre réponse..." 
+              class="mt-2 p-1 border text-primary border-gray-300 rounded-md w-full" 
+            />
+          )}
+
+          </div>
+        ))}
+        <button type="button" id="progressButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Suivant
+        </button>
+      </form>
+    </section>
+    <button onclick="closeQuiz()" class="text-white">Close</button>
+  </div>
+</div>
+<script type="module">
+  const quizModal = document.getElementById('quizModal');
+  const quizContainer = document.querySelector('.quiz-container');
+  const progressButton = document.getElementById('progressButton');
+  const questions = document.querySelectorAll('.question');
+  let currentQuestion = 0;
+
+  document.querySelectorAll('.quiz-open-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      quizModal.style.display = 'flex';  // Make sure this is working
+      resetForm();
+      showQuestion(0); // Show the first question
+    });
+  });
+
+  quizModal.addEventListener('click', function(event) {
+    if (!quizContainer.contains(event.target)) {
+      closeQuiz();
+    }
+  });
+
+  quizContainer.addEventListener('click', function(event) {
+    event.stopPropagation();  // Stop clicks from closing the modal when inside the container
+  });
+
+  function closeQuiz() {
+    quizModal.style.display = 'none';
+    resetForm();
+  }
+
+  function resetForm() {
+    const form = document.getElementById('quizForm');
+    form.reset();
+    questions.forEach(question => question.hidden = true);  // Ensure all are hidden on reset
+    showQuestion(0);  // Show the first question after reset
+  }
+
+  function showQuestion(index) {
+    questions.forEach((question, idx) => question.hidden = idx !== index); // Only show the current question
+    updateButton(index);
+  }
+
+  function updateButton(index) {
+    progressButton.textContent = index === questions.length - 1 ? 'Soumettre' : 'Suivant';
+    progressButton.onclick = index === questions.length - 1 ? submitQuiz : () => showQuestion(index + 1);
+  }
+
+  function submitQuiz() {
+    const formData = new FormData(document.getElementById('quizForm'));
+    const formProps = {};
+    
+    // Handle multiple entries for radio and checkboxes, and capture all text inputs
+    formData.forEach((value, key) => {
+        if (formProps.hasOwnProperty(key)) {
+            // Check if already an array, then push or convert to array and push
+            formProps[key] = Array.isArray(formProps[key]) ? [...formProps[key], value] : [formProps[key], value];
+        } else {
+            formProps[key] = value;
+        }
+    });
+
+    // Log the consolidated form data
+    console.log('Form Data:', formProps);
+    closeQuiz();
+  }
+
+  // Add new functionality to uncheck radios when typing in text
+  questions.forEach(question => {
+    const textInput = question.querySelector('input[type="text"]');
+    const radioInputs = question.querySelectorAll('input[type="radio"]');
+
+    if (textInput) {
+      textInput.addEventListener('input', () => {
+        if (textInput.value.trim() !== "") {
+          radioInputs.forEach(radio => {
+            radio.checked = false; // Uncheck all radios in this question
+          });
+        }
+      });
+    }
+  });
+</script>

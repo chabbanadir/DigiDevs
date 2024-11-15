@@ -1,4 +1,4 @@
 ---
-const {title='title',className } = Astro.props
+const { title = 'Open Quiz', className = '' } = Astro.props;
 ---
-<button class=`${className} `> {title}</button>
+<button class={`quiz-open-btn ${className}`} data-quiz="open">{title}</button>

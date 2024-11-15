@@ -9,6 +9,8 @@ import TestimonialGroup from "../../components/moleculs/TestimonialGroup.astro";
 import WhySection from "../../components/moleculs/WhySection.astro";
 import Faq from "../../components/organics/Faq.astro";
 import Layout from "../../layouts/Layout.astro";
+import { digitalizationQuiz } from "../../Data/digitalizationQuiz.ts";
+
 const cards = [
   {
     icon: "mdi:car-speed-limiter",
@@ -258,7 +260,7 @@ const strengths = [
 ];
 
 ---
-<Layout title="Développement Front-End & Back-End" className=' bg-primary'> 
+<Layout title="Développement Front-End & Back-End" className=' bg-primary'  quiz={digitalizationQuiz}> 
 
     <HeroSection 
     title= 'Concevez des Applications Web Performantes avec DigiDevs'

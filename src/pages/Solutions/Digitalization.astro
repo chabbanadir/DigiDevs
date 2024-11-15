@@ -1,0 +1,134 @@
+---
+import HeroSection from "../../components/moleculs/HeroSection.astro";
+import ProcessSteps from "../../components/moleculs/ProcessSteps.astro";
+import StrengthsGrid from "../../components/moleculs/StrengthsGrid.astro";
+import Faq from "../../components/organics/Faq.astro";
+import Layout from "../../layouts/Layout.astro";
+import { digitalizationQuiz } from "../../Data/digitalizationQuiz.ts";
+
+const heroProps = {
+  img: '/illustration/Digitalization.png',
+  altImg: "Digitalisation Boost",
+  title: "Digitalisation – Transformez votre entreprise avec Digital developments",
+  subtitle: "Chez Digital Development , nous ne proposons pas simplement des solutions – nous créons des expériences personnalisées qui transforment votre manière de travailler. Ensemble, nous accélérons votre succès.",
+  btnTitle: "Commencez maintenant",
+  btnclassName: "btn-primary",
+  badgeTitle: "Numerique, Simplification, Optimisation",
+  width: 800,
+  height: 600
+};
+const strengths = [
+  {
+    title: "Efficacité opérationnelle accrue",
+    description: "Réduction des tâches manuelles et des erreurs humaines pour des opérations plus fluides.",
+    icon: "mdi:cog-sync-outline",  // Un exemple d'icône représentant des rouages en mouvement
+  },
+  {
+    title: "Optimisation des processus",
+    description: "Simplification des flux de travail pour une productivité renforcée.",
+    icon: "mdi:routes",  // Un exemple d'icône représentant des routes ou flux optimisés
+  },
+  {
+    title: "Accès à de nouveaux marchés",
+    description: "Présence en ligne améliorée pour toucher une audience plus large.",
+    icon: "mdi:earth",  // Un exemple d'icône représentant un globe terrestre
+  },
+  {
+    title: "Prise de décision éclairée",
+    description: "Accès en temps réel aux données pertinentes pour des décisions stratégiques.",
+    icon: "mdi:chart-bubble",  // Un exemple d'icône représentant un tableau de bord analytique
+  }
+];
+
+const faqItems = [
+  {
+    question: "Comment démarrer avec la digitalisation ?",
+    answer: "Pour démarrer, nous évaluons vos besoins actuels et proposons une stratégie adaptée à votre entreprise. Visitez notre page de services pour plus de détails ou contactez-nous directement pour une consultation.",
+    tags: [
+      { label: "Démarrage", link: "/start" },
+      { label: "Services", link: "/services" }
+    ]
+  },
+  {
+    question: "Quel est le coût des services ?",
+    answer: "Les coûts dépendent de la complexité et de l'étendue des services requis. Nous offrons des consultations gratuites pour établir un devis précis. Pour une estimation, veuillez remplir notre formulaire de demande de devis en ligne.",
+    tags: [
+      { label: "Coûts", link: "/costs" },
+      { label: "Devis", link: "/quote" }
+    ]
+  },
+  {
+    question: "Offrez-vous un support technique après la mise en œuvre ?",
+    answer: "Oui, nous offrons un support technique complet après la mise en œuvre pour nous assurer que vous tirez le meilleur parti de nos solutions. Consultez notre page de support pour plus d'informations.",
+    tags: [
+      { label: "Support", link: "/support" }
+    ]
+  },
+  {
+    question: "Comment puis-je former mon équipe à utiliser les nouvelles technologies ?",
+    answer: "Nous proposons des ateliers de formation et des ressources en ligne pour aider votre équipe à s'adapter et à exceller avec les nouvelles technologies. Découvrez nos options de formation.",
+    tags: [
+      { label: "Formation", link: "/training" }
+    ]
+  }
+];
+
+
+const psdApproachSteps = [
+  {
+    title: "Analyse et Diagnostic",
+    description: "Audit et cartographie des processus actuels pour identifier les inefficacités.",
+    icon: "mdi:magnify"  // Icone de loupe pour l'analyse
+  },
+  {
+    title: "Simplification des Processus",
+    description: "Refonte et standardisation pour accroître l'efficacité.",
+    icon: "mdi:filter-outline"  // Icone de filtre pour simplification
+  },
+  {
+    title: "Conception de la Solution Digitale",
+    description: "Architecture technique et choix technologiques adaptés.",
+    icon: "mdi:application-outline"  // Icone d'application pour la conception
+  },
+  {
+    title: "Développement et Intégration",
+    description: "Création et intégration de l'application dans vos systèmes existants.",
+    icon: "mdi:code-tags"  // Icone de code pour développement
+  },
+  {
+    title: "Tests et Validation",
+    description: "Validation fonctionnelle et retour utilisateur pour un produit parfait.",
+    icon: "mdi:check-circle-outline"  // Icone de validation
+  },
+  {
+    title: "Déploiement et Formation",
+    description: "Mise en production et formation des équipes pour une adoption réussie.",
+    icon: "mdi:rocket-launch-outline"  // Icone de fusée pour déploiement
+  },
+  {
+    title: "Suivi et Amélioration Continue",
+    description: "Support et évolutions pour une solution toujours à jour.",
+    icon: "mdi:progress-check"  // Icone de suivi et amélioration
+  }
+];
+
+
+---
+
+<Layout title="Digitalization" className="bg-primary" quiz={digitalizationQuiz}> 
+  <HeroSection {...heroProps} />
+  <StrengthsGrid
+  title="Des Avantages Concrets"
+  subtitle="Obtenez des résultats concrets grâce à la digitalisation"
+  strengths={strengths}
+  />
+  <ProcessSteps
+    title="Notre Approche PSD"
+    subtitle="Une méthodologie en plusieurs étapes pour optimiser vos processus métiers"
+    steps={psdApproachSteps}
+    />
+    <Faq faq={faqItems} />
+
+
+
+</Layout>

@@ -7,6 +7,7 @@ import TestimonialGroup from '../../components/moleculs/TestimonialGroup.astro';
 import WhySection from '../../components/moleculs/WhySection.astro';
 import Faq from '../../components/organics/Faq.astro';
 import Layout from '../../layouts/Layout.astro';
+import { digitalizationQuiz } from "../../Data/digitalizationQuiz.ts";
 
 const cards = [
   {
@@ -201,7 +202,7 @@ const faqItems = [
 ];
 
 ---
-<Layout title="Landing Pages" className=' bg-primary'> 
+<Layout title="Landing Pages" className=' bg-primary'  quiz={digitalizationQuiz}> 
 
     <HeroSection 
     title= 'Améliorez Votre Visibilité en Ligne avec un Site Web Vitrine Professionnel!'

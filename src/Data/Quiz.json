@@ -1,0 +1,44 @@
+{
+    "initialQuestions": [
+      {
+        "id": "q1",
+        "question": "Quel aspect de votre entreprise souhaitez-vous améliorer en premier ?",
+        "options": [
+          {"text": "Processus d'affaires", "value": "erp", "next": "erpQuestions"},
+          {"text": "Présence en ligne", "value": "digitalization", "next": "digitalizationQuestions"},
+          {"text": "Visibilité et performance", "value": "seo", "next": "seoQuestions"}
+        ]
+      }
+    ],
+    "erpQuestions": [
+      {
+        "id": "erp1",
+        "question": "Avez-vous déjà un système ERP en place ?",
+        "options": [
+          {"text": "Oui", "value": "yes"},
+          {"text": "Non", "value": "no"}
+        ]
+      }
+    ],
+    "digitalizationQuestions": [
+      {
+        "id": "digital1",
+        "question": "Votre entreprise est-elle actuellement en ligne ?",
+        "options": [
+          {"text": "Oui", "value": "yes"},
+          {"text": "Non", "value": "no"}
+        ]
+      }
+    ],
+    "seoQuestions": [
+      {
+        "id": "seo1",
+        "question": "Avez-vous besoin d'une analyse SEO de votre site Web ?",
+        "options": [
+          {"text": "Oui", "value": "yes"},
+          {"text": "Non", "value": "no"}
+        ]
+      }
+    ]
+  }
+  

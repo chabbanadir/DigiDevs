@@ -1,11 +1,15 @@
 ---
 import Footer from '../components/organics/Footer.astro';
 import Navbar from '../components/organics/Navbar.astro';
+import QuizModal from '../components/organics/QuizModal.astro';
+import { type Quiz } from '../types/types.ts';
 
 interface Props {
 	title: string;
 	className: string;
+  quiz?: Quiz; // Optional prop for quiz data
 }
+
 const link =[
   {
     label: "Liens Rapides",
@@ -49,7 +53,7 @@ const links = [
     href: "#",
     icon: "navicons/Solution",
     subitems: [
-      { label: "Digitalization", href: "#", icon: "navicons/appweb" },
+      { label: "Digitalization", href: "/Solutions/Digitalization", icon: "navicons/appweb" },
       { label: "Integration ERP", href: "#", icon: "navicons/Erp" },
       { label: "Audit SEO", href: "#", icon: "navicons/SEo" }
     ]
@@ -84,27 +88,27 @@ const links = [
     icon: "navicons/apropo"
   }
 ];
-const { title,className} = Astro.props;
+const { title,className,quiz} = Astro.props;
 ---
-
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body class=`${className}`>
-		<Navbar links={links}/>
-		<slot />
-	</body>
-	<Footer
-	links={link}
-	companyName={companyName}
-	companyDescription={companyDescription}
-	socialLinks={socialLinks}
-  />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class={`${className} w-full min-w-full min-h-screen overflow-x-hidden`}>
+    <Navbar links={links}/>
+    <slot /> <!-- Main page content goes here -->
+    {quiz && <QuizModal quiz={quiz} />} <!-- Conditionally render the QuizModal if quiz data is provided -->
+    <Footer
+      links={link}
+      companyName={companyName}
+      companyDescription={companyDescription}
+      socialLinks={socialLinks}
+    />
+  </body>
 </html>
