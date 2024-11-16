@@ -1,0 +1,72 @@
+---
+
+---
+
+<section class="m-4">
+    <form>
+        <div class="grid gap-6 mb-6 md:grid-cols-2">
+            <div>
+                <label for="first_name" class="block mb-2 text-sm font-medium text-neutral">Prénom</label>
+                <input type="text" id="first_name" class="bg-neutral border border-light-gray text-dark-gray text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5" placeholder="John" required />
+            </div>
+            <div>
+                <label for="last_name" class="block mb-2 text-sm font-medium text-neutral">Nom</label>
+                <input type="text" id="last_name" class="bg-neutral border border-light-gray text-dark-gray text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5" placeholder="Doe" required />
+            </div>
+            <div>
+                <label for="company" class="block mb-2 text-sm font-medium text-neutral">Entreprise</label>
+                <input type="text" id="company" class="bg-neutral border border-light-gray text-dark-gray text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5" placeholder="Flowbite" required />
+            </div>  
+            <div>
+                <label for="position" class="block mb-2 text-sm font-medium text-neutral">Poste</label>
+                <input type="text" id="position" class="bg-neutral border border-light-gray text-dark-gray text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5" placeholder="Manager" required />
+            </div>
+            <div>
+                <label for="phone" class="block mb-2 text-sm font-medium text-neutral">Numéro de téléphone</label>
+                <input type="tel" id="phone" class="bg-neutral border border-light-gray text-dark-gray text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required />
+            </div>
+            <div>
+                <label for="email" class="block mb-2 text-sm font-medium text-neutral">Adresse e-mail</label>
+                <input type="email" id="email" class="bg-neutral border border-light-gray text-dark-gray text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5" placeholder="john.doe@company.com" required />
+            </div>
+        </div>
+       
+        <!-- New section for project brief and meeting scheduling -->
+        <div class="mb-6">
+            <label class="block mb-2 text-sm font-medium text-neutral">Avez-vous un cahier des charges ?</label>
+            <div class="flex items-center mb-4">
+                <input id="brief_yes" type="radio" name="project_brief" value="yes" class="w-4 h-4 text-primary focus:ring-accent border-gray-300">
+                <label for="brief_yes" class="ml-2 text-sm font-medium text-neutral">Oui</label>
+            </div>
+            <div class="flex items-center mb-4">
+                <input id="brief_no" type="radio" name="project_brief" value="no" class="w-4 h-4 text-primary focus:ring-accent border-gray-300">
+                <label for="brief_no" class="ml-2 text-sm font-medium text-neutral">Non</label>
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <label class="block mb-2 text-sm font-medium text-neutral">Souhaitez-vous que nous créions votre cahier des charges ?</label>
+            <div class="flex items-center mb-4">
+                <input id="create_brief_yes" type="radio" name="create_brief" value="yes" class="w-4 h-4 text-primary focus:ring-accent border-gray-300">
+                <label for="create_brief_yes" class="ml-2 text-sm font-medium text-neutral">Oui ($330 incl GST - Brisbane Metro)</label>
+            </div>
+            <div class="flex items-center">
+                <input id="create_brief_no" type="radio" name="create_brief" value="no" class="w-4 h-4 text-primary focus:ring-accent border-gray-300">
+                <label for="create_brief_no" class="ml-2 text-sm font-medium text-neutral">Non, je préfère le remplir en ligne</label>
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <label for="meeting_date" class="block mb-2 text-sm font-medium text-neutral">Organisons une réunion à votre bureau. Veuillez nous indiquer votre date et heure préférée :</label>
+            <input type="date" id="meeting_date" class="bg-neutral border border-light-gray text-dark-gray text-sm rounded-lg focus:ring-accent focus:border-accent block w-full p-2.5" required>
+        </div>
+        <div class="flex items-start mb-6">
+            <div class="flex items-center h-5">
+                <input id="terms" type="checkbox" class="w-4 h-4 border border-light-gray rounded bg-neutral focus:ring-3 focus:ring-accent dark:bg-dark-gray dark:border-dark-gray dark:focus:ring-accent" required />
+            </div>
+            <label for="terms" class="ml-2 text-sm font-medium text-dark-gray dark:text-neutral">J'accepte les <a href="#" class="text-secondary hover:underline dark:text-accent">conditions générales</a>.</label>
+        </div>
+        <!-- Submit button -->
+        <button type="submit" class="text-neutral bg-primary hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-accent font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Envoyer</button>
+    </form>
+</section>

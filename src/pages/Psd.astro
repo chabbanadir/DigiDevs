@@ -1,0 +1,106 @@
+---
+import CollaborationTimeline from "../components/moleculs/CollaborationTimeline.astro";
+import HeroSection from "../components/moleculs/HeroSection.astro";
+import ProcessSteps from "../components/moleculs/ProcessSteps.astro";
+import Layout from "../layouts/Layout.astro";
+
+const preProcessSteps = [
+  { icon: 'mdi:clipboard-outline', title: "Remplir le formulaire de demande de projet", description: "Collect necessary project requirements" },
+  { icon: 'mdi:alert-circle-outline', title: "Définir le problème / les risques", description: "Identify potential risks and issues early" },
+  { icon: 'mdi:chart-line', title: "Indiquer les KPI impactés", description: "Specify the key performance indicators that will be impacted" },
+  { icon: 'mdi:target', title: "Aligner avec les objectifs métiers", description: "Align the project with business objectives" },
+  { icon: 'mdi:chart-box-outline', title: "Optimiser les ressources", description: "Optimize resource allocation for efficiency" },
+  { icon: 'mdi:account-group-outline', title: "Engager les parties prenantes", description: "Engage stakeholders to ensure support and clear communication" },
+  { icon: 'mdi:lightbulb-on-outline', title: "Encourager la synergie et l'innovation", description: "Promote synergy and innovation among team members" }
+];
+const initiationSteps = [
+  { icon: 'mdi:flag-outline', title: "Définir les objectifs et le but du projet", description: "Outline clear project goals" },
+  { icon: 'mdi:file-document-outline', title: "Rédiger une proposition de projet d'une page", description: "Prepare a concise project proposal" },
+  { icon: 'mdi:scale-balance', title: "Identifier les risques de haut niveau", description: "Identify high-level risks and constraints" },
+  { icon: 'mdi:cash-multiple', title: "Estimer les économies de coûts", description: "Estimate cost savings and budget implications" },
+  { icon: 'mdi:telescope', title: "Analyser les processus avec TEOA", description: "Analyze processes with TEOA to ensure alignment" }
+];
+const planningSteps = [
+  { icon: 'mdi:calendar-range', title: "Créer des plans détaillés", description: "Create detailed plans for scope, schedule, budget, and resources" },
+  { icon: 'mdi:account-supervisor-circle', title: "Intégrer les unités opérationnelles", description: "Integrate operational units for streamlined execution" }
+];
+const executionSteps = [
+  { icon: 'mdi:hammer-screwdriver', title: "Réaliser le travail du projet", description: "Carry out the project work as planned" },
+  { icon: 'mdi:account-cash', title: "Gérer les ressources et les tâches", description: "Manage resources and task assignments effectively" },
+  { icon: 'mdi:test-tube', title: "Tester et déployer", description: "Test and deploy solutions as per the project requirements" }
+];
+const monitoringSteps = [
+  { icon: 'mdi:monitor-eye', title: "Suivre la performance du projet", description: "Monitor the project's performance against set KPIs" },
+  { icon: 'mdi:shield-refresh-outline', title: "Gérer les changements et les risques", description: "Manage changes and mitigate risks during the project lifecycle" },
+  { icon: 'mdi:quality-high', title: "Garantir la qualité et la conformité", description: "Ensure quality and compliance with project standards" },
+  { icon: 'mdi:school-outline', title: "Former et déployer", description: "Train stakeholders and deploy the final solution" }
+];
+const closingSteps = [
+  { icon: 'mdi:file-check-outline', title: "Examiner et accepter les livrables", description: "Review and accept the project deliverables" },
+  { icon: 'mdi:book-open-page-variant', title: "Documenter les leçons apprises", description: "Document lessons learned for future reference" },
+  { icon: 'mdi:file-document-edit-outline', title: "Préparer un rapport de clôture du projet", description: "Prepare a final project closure report" }
+];
+const gateReviews = [
+  { 
+    icon: 'mdi:gate-arrow-right', 
+    title: "Validation at Project Start", 
+    description: "Ensure all requirements are clear and agreed upon.",
+    participants: ["Project Sponsors", "Key Stakeholders"],
+    objectives: "Confirm project scope and initial resource allocation."
+  },
+  { 
+    icon: 'mdi:gate-and', 
+    title: "Mid-Project Review", 
+    description: "Assess progress against initial timelines and budgets.",
+    participants: ["Project Managers", "Department Heads"],
+    objectives: "Adjust plans and resources as needed based on project evolution."
+  },
+  { 
+    icon: 'mdi:gate-arrow-left', 
+    title: "Pre-Deployment Review", 
+    description: "Final check before project deployment.",
+    participants: ["Quality Assurance", "Deployment Teams"],
+    objectives: "Ensure all components meet quality standards and are ready for deployment."
+  },
+  { 
+    icon: 'mdi:gate-alert', 
+    title: "Post-Deployment Review", 
+    description: "Evaluate the project outcomes and impact.",
+    participants: ["Senior Management", "Client Representatives"],
+    objectives: "Review project success and identify areas for future improvement."
+  }
+];
+// Data object for HeroSection component in Psd.astro
+const heroSectionData = {
+  img: '/illustration/psdIllustration.png',  // Ensure this is the correct path to your image file
+  altImg: 'Digital Transformation Team in Action',
+  title: 'Optimizing Processes with Innovation',
+  subtitle: 'Discover our unique approach to simplifying and digitizing business processes using our PSD methodology.',
+  width: 1920,  // Example width, adjust according to your design requirements
+  height: 1080, // Example height, adjust according to your design requirements
+  btnTitle: 'Learn More About PSD',
+  btnclassName: 'btn-primary',
+  badgeTitle: 'Process Simplification & Digitalization'
+};
+---
+
+<Layout title="PSD" className="bg-primary">
+    <HeroSection 
+    title="Concevez des Applications Web Performantes avec DigiDevs"
+    subtitle="Découvrez comment notre approche PSD simplifie et digitalise vos processus métiers pour des applications web sur mesure."
+    img="/illustration/psdIllustration.png"
+    altImg="Développement Hero"
+    width={900}
+    height={900}
+    btnTitle="Contactez-Nous pour un Devis"
+    btnclassName="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-2 px-6 rounded-full shadow-lg transform transition hover:scale-105"
+    badgeTitle="Innover pour Votre Croissance"
+  />
+      <ProcessSteps title="Phase de pré-processus" steps={preProcessSteps} />
+    <ProcessSteps title="Processus d'initiation" duration="Moins de 4 semaines" steps={initiationSteps} />
+    <ProcessSteps title="Processus de planification" steps={planningSteps} />
+    <ProcessSteps title="Processus d'exécution" steps={executionSteps} />
+    <ProcessSteps title="Processus de suivi et de déploiement" steps={monitoringSteps} />
+    <ProcessSteps title="Processus de clôture" steps={closingSteps} />
+    <CollaborationTimeline title="Revues de Phase" steps={gateReviews} />
+</Layout>

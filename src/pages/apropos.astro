@@ -1,0 +1,90 @@
+---
+import HeroSection from "../components/moleculs/HeroSection.astro";
+import StrengthsGrid from "../components/moleculs/StrengthsGrid.astro";
+import TestimonialGroup from "../components/moleculs/TestimonialGroup.astro";
+import WhySection from "../components/moleculs/WhySection.astro";
+import Contactus from "../components/organics/Contactus.astro";
+import Layout from "../layouts/Layout.astro";
+// Données pour les composants
+const heroProps = {
+  img: '/illustration/HeroSection.png',
+  altImg: 'Image descriptive de Digital Development',
+  title: 'À Propos de Digital Development',
+  subtitle: 'Découvrez qui nous sommes, notre mission, et ce que nous vous apportons.',
+  btnTitle: 'En savoir plus',
+  btnclassName: 'btn-primary',
+  badgeTitle: 'Engagement Qualité'
+};
+
+const strengthsProps = {
+  strengths: [
+  {
+    title: "Expertise en Transformation Digitale",
+    description: "Compétences reconnues en simplification et digitalisation des processus métiers.",
+    icon: "mdi:autorenew"  // Icon to represent transformation or renewal
+  },
+  {
+    title: "Approche Personnalisée",
+    description: "Solutions sur mesure conçues spécifiquement pour répondre à vos défis.",
+    icon: "mdi:account-cog"  // Icon representing personalization and settings
+  },
+  {
+    title: "Engagement Qualité",
+    description: "Respect des délais et des standards de qualité les plus élevés.",
+    icon: "mdi:medal-outline"  // Icon representing a medal for quality or achievement
+  },
+  {
+    title: "Collaboration Étendue",
+    description: "Partenariat avec vos équipes pour assurer le succès du projet.",
+    icon: "mdi:handshake"  // Icon representing collaboration and partnership
+  }
+  ],
+  title: 'Nos Valeurs',
+  subtitle: 'Ce qui nous motive chaque jour.'
+};
+const cards = [
+  {
+    icon: "mdi:car-speed-limiter",
+    title: "Optimisation des Processus Métiers",
+    description: "Développez des applications qui améliorent les opérations et réduisent les coûts grâce à l’automatisation."
+  },
+  {
+    icon: "mdi:television-guide",
+    title: "Interfaces Intuitives et Modernes",
+    description: "Des designs UX/UI soignés pour une expérience utilisateur engageante et intuitive."
+  },
+  {
+    icon: "mdi:cloud-upload",
+    title: "Scalabilité Assurée",
+    description: "Solutions évolutives pour accompagner votre croissance future sans compromis sur la performance."
+  },
+  {
+    icon: "mdi:cloud-lock",
+    title: "Sécurité et Performances Optimales",
+    description: "Mise en place de protocoles avancés pour assurer la sécurité et la rapidité de vos applications."
+  },
+];
+
+const testimonialsProps = {
+  testimonials: [
+    { name: 'John Doe', image: '/image1.png', quote: 'Un service exceptionnel...', rating: 5 },
+    { name: 'John Doe', image: '/image2.png', quote: 'Un service exceptionnel...', rating: 5 },
+    { name: 'John Doe', image: '/image1.png', quote: 'Un service exceptionnel...', rating: 5 },
+    { name: 'John Doe', image: '/image2.png', quote: 'Un service exceptionnel...', rating: 5 }
+
+  ]
+};
+---
+
+<Layout title="A propos"  className="bg-primary" >
+    <HeroSection {...heroProps} />
+    <WhySection 
+    title='Pourquoi Choisir le Développement Front-End & Back-End ?'
+    description="Dans un monde digital, des applications performantes sont essentielles pour optimiser vos processus et renforcer votre compétitivité. Nos solutions sur mesure s’adaptent à vos besoins pour une scalabilité optimale." 
+    cardData={cards}
+    />
+    <StrengthsGrid {...strengthsProps} />
+    <Contactus />
+    <TestimonialGroup {...testimonialsProps} />
+
+</Layout>

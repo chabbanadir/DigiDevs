@@ -110,7 +110,7 @@ const { quiz } = Astro.props as { quiz: Quiz };
     });
 
     // Log the consolidated form data
-    console.log('Form Data:', formProps);
+    console.log(JSON.stringify(formProps, null, 2));
     closeQuiz();
   }
 
