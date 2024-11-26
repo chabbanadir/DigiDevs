@@ -1,0 +1,279 @@
+---
+import HeroSection from "../../components/moleculs/HeroSection.astro";
+import ProcessSteps from "../../components/moleculs/ProcessSteps.astro";
+import SecondHero from "../../components/moleculs/SecondHero.astro";
+import StrengthsGrid from "../../components/moleculs/StrengthsGrid.astro";
+import TestimonialGroup from "../../components/moleculs/TestimonialGroup.astro";
+import WhySection from "../../components/moleculs/WhySection.astro";
+import Faq from "../../components/organics/Faq.astro";
+import Layout from "../../layouts/Layout.astro";
+
+
+
+const seoHeroContent = {
+    title: 'Concevez des Applications Web Performantes avec DigiDevs',
+    subtitle: 'Découvrez comment notre approche PSD simplifie et digitalise vos processus métiers pour des applications web sur mesure.',
+    img: '/illustration/SEO Hero.png',
+    altImg: 'Développement Hero',
+    width: 900,
+    height: 900,
+    btnTitle: "Contactez-Nous pour un Devis",
+    btnclassName: "bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-2 px-6 rounded-full shadow-lg transform transition hover:scale-105",
+    badgeTitle: "Innover pour Votre Croissance"
+};
+
+const seoWhyContent = {
+    title: 'Pourquoi Choisir le SEO pour Votre Entreprise ?',
+    description: "Dans un monde digital compétitif, le référencement naturel (SEO) est essentiel pour améliorer votre visibilité en ligne, attirer des clients qualifiés et augmenter la croissance de votre entreprise. Chez DigiDevs, nous offrons des solutions SEO sur mesure pour garantir des résultats durables.",
+    cardData: [
+        {
+            icon: "mdi:account-multiple",
+            title: "Augmentation de la Visibilité",
+            description: "Grâce au SEO, positionnez votre site en tête des résultats de recherche et attirez un public plus large."
+        },
+        {
+            icon: "mdi:chart-line",
+            title: "Génération de Trafic Qualifié",
+            description: "Attirez des visiteurs intéressés et qualifiés, augmentant ainsi les chances de conversion et de fidélisation client."
+        },
+        {
+            icon: "mdi:clock-outline",
+            title: "Résultats Durables",
+            description: "Une stratégie SEO bien conçue offre des bénéfices sur le long terme, avec un impact durable sur votre présence en ligne."
+        },
+        {
+            icon: "mdi:magnify",
+            title: "Analyse de la Concurrence",
+            description: "Évaluation des stratégies SEO de vos concurrents pour vous permettre de prendre l’avantage dans votre secteur."
+        },
+        {
+            icon: "mdi:scale-balance",
+            title: "Optimisation du ROI",
+            description: "Le SEO est une solution rentable, offrant un retour sur investissement élevé par rapport aux autres canaux de marketing."
+        },
+        {
+            icon: "mdi:account-cash-outline",
+            title: "Réduction des Coûts Publicitaires",
+            description: "Avec un bon référencement, réduisez votre dépendance aux publicités payantes et attirez du trafic organique gratuitement."
+        },
+        {
+            icon: "mdi:tools",
+            title: "Stratégies Personnalisées",
+            description: "Chaque entreprise est unique. Nous concevons des stratégies adaptées à vos objectifs et à votre secteur d'activité."
+        },
+        {
+            icon: "mdi:security",
+            title: "Meilleure Expérience Utilisateur",
+            description: "L'optimisation SEO améliore également l'expérience utilisateur en rendant votre site plus rapide et facile à naviguer."
+        }
+    ]
+};
+
+
+const seoSecondHeroContent = {
+    title: 'Les Caractéristiques de Nos Solutions',
+    subtitle: "Nos solutions de développement SEO sont pensées pour assurer une expérience utilisateur de qualité, la sécurité et la performance.",
+    img: '/illustration/WHY.png',
+    altImg: 'SEO Hero',
+    width: 900,
+    height: 900,
+    badgeTitle: "Votre Succès, Notre Engagement"
+};
+
+const psdApproachSteps = [
+    {
+        title: "Analyse et Diagnostic",
+        description: "Audit complet de votre site web, y compris l'analyse des mots-clés, des concurrents et de la structure du site, pour identifier les opportunités d'amélioration.",
+        icon: "mdi:magnify"
+    },
+    {
+        title: "Planification de la Stratégie",
+        description: "Définition d'une stratégie SEO sur mesure qui s'aligne avec vos objectifs commerciaux, en priorisant les actions pour un impact maximal.",
+        icon: "mdi:calendar-check"
+    },
+    {
+        title: "Optimisation On-Page",
+        description: "Optimisation du contenu, des balises HTML, de la structure des liens internes, et des éléments visuels pour améliorer le classement dans les résultats de recherche.",
+        icon: "mdi:file-document-edit"
+    },
+    {
+        title: "SEO Technique",
+        description: "Amélioration des aspects techniques de votre site, comme la vitesse de chargement, la sécurité, et l'optimisation mobile, pour favoriser une meilleure indexation.",
+        icon: "mdi:settings-outline"
+    },
+    {
+        title: "Netlinking et SEO Off-Page",
+        description: "Développement d'une stratégie de création de backlinks de qualité pour renforcer l'autorité de votre site aux yeux des moteurs de recherche.",
+        icon: "mdi:link-variant"
+    },
+    {
+        title: "Suivi et Optimisation Continue",
+        description: "Analyse des performances SEO avec des rapports réguliers et ajustements de la stratégie en fonction des résultats et des changements d'algorithme.",
+        icon: "mdi:chart-line"
+    }
+];
+
+const strengthsContent = {
+    title: "Nos Points Forts",
+    subtitle: "Pourquoi nous choisir pour vos projets de SEO",
+    strengths: [
+        {
+            icon: "mdi:certificate",
+            title: "Expertise Certifiée",
+            description: "Une équipe de spécialistes SEO certifiés, maîtrisant les dernières tendances et techniques pour garantir des résultats optimaux."
+        },
+        {
+            icon: "mdi:account-group",
+            title: "Approche Personnalisée",
+            description: "Chaque projet est unique. Nous concevons des stratégies SEO sur mesure adaptées aux objectifs de chaque client."
+        },
+        {
+            icon: "mdi:chart-line",
+            title: "Résultats Mesurables",
+            description: "Nous mettons en place des indicateurs de performance (KPI) pour mesurer l'impact de notre travail et optimiser les résultats."
+        },
+        {
+            icon: "mdi:refresh",
+            title: "Suivi Continu et Ajustements",
+            description: "Nous offrons un suivi régulier et des ajustements constants pour s'adapter aux évolutions des algorithmes de recherche."
+        },
+        {
+            icon: "mdi:cloud-check",
+            title: "Expérience Multi-Secteurs",
+            description: "Forte expérience dans divers secteurs : e-commerce, finance, santé, éducation, et plus, pour une stratégie SEO adaptée à chaque secteur."
+        },
+        {
+            icon: "mdi:security",
+            title: "Transparence et Fiabilité",
+            description: "Nous assurons une communication transparente avec des mises à jour régulières et des rapports détaillés."
+        }
+    ]
+};
+const faqItems = [
+    {
+        question: "Qu'est-ce que le SEO exactement ?",
+        answer: "Le SEO, ou référencement naturel, est l'optimisation de votre site pour les moteurs de recherche, visant à améliorer sa visibilité et son classement.",
+        tags: [
+            { label: "SEO", link: "#" },
+            { label: "Référencement Naturel", link: "#" }
+        ]
+    },
+    {
+        question: "Combien de temps avant de voir des résultats SEO ?",
+        answer: "Le SEO est un processus à long terme. Les premiers résultats peuvent apparaître en 3 à 6 mois, mais cela dépend de la compétitivité de votre secteur.",
+        tags: [
+            { label: "Résultats SEO", link: "#" },
+            { label: "Temps", link: "#" }
+        ]
+    },
+    {
+        question: "Quelle est la différence entre le SEO On-Page et le SEO Off-Page ?",
+        answer: "Le SEO On-Page concerne l'optimisation du contenu et des balises sur votre site, tandis que le SEO Off-Page se concentre sur la création de liens et l'autorité externe.",
+        tags: [
+            { label: "SEO On-Page", link: "#" },
+            { label: "SEO Off-Page", link: "#" }
+        ]
+    },
+    {
+        question: "Pourquoi le SEO est-il important pour mon entreprise ?",
+        answer: "Le SEO améliore la visibilité en ligne, attire des clients potentiels et augmente les chances de conversions sans recourir aux publicités payantes.",
+        tags: [
+            { label: "Importance du SEO", link: "#" },
+            { label: "Avantages", link: "#" }
+        ]
+    },
+    {
+        question: "Le SEO peut-il aider mon entreprise à se démarquer localement ?",
+        answer: "Oui, avec le SEO local, nous optimisons votre site pour les recherches locales, ce qui est crucial pour attirer des clients proches de vous.",
+        tags: [
+            { label: "SEO Local", link: "#" },
+            { label: "Localisation", link: "#" }
+        ]
+    }
+];
+const testimonials = [
+    {
+        name: "Thomas Leroy",
+        image: "/image1.png",
+        quote: "Grâce à DigiDevs, notre trafic a considérablement augmenté et nos ventes en ligne ont suivi. Leur expertise en SEO a fait la différence pour notre entreprise.",
+        rating: 5
+    },
+    {
+        name: "Claire Dupuis",
+        image: "/image2.png",
+        quote: "Nous avons constaté une nette amélioration de notre positionnement sur Google grâce au travail de DigiDevs. Une équipe à l’écoute et très professionnelle.",
+        rating: 4.5
+    },
+    {
+        name: "Michel Moreau",
+        image: "/image1.png",
+        quote: "DigiDevs nous a aidés à attirer de nouveaux clients grâce à une stratégie SEO efficace et adaptée à notre secteur.",
+        rating: 5
+    },
+    {
+        name: "Sophie Lemoine",
+        image: "/image2.png",
+        quote: "Leur expertise en SEO local a permis d’augmenter la visibilité de notre entreprise dans notre région, attirant plus de clients en magasin.",
+        rating: 4
+    }
+];
+
+---
+
+<Layout  title="Audit SEO" className=' bg-primary'> 
+
+<!-- Section Hero SEO -->
+<HeroSection 
+title={seoHeroContent.title}
+subtitle={seoHeroContent.subtitle}
+img={seoHeroContent.img}
+altImg={seoHeroContent.altImg}
+width={seoHeroContent.width}
+height={seoHeroContent.height}
+btnTitle={seoHeroContent.btnTitle}
+btnclassName={seoHeroContent.btnclassName}
+badgeTitle={seoHeroContent.badgeTitle}
+/>
+
+<!-- Section Pourquoi Choisir SEO -->
+<WhySection 
+title={seoWhyContent.title}
+description={seoWhyContent.description}
+cardData={seoWhyContent.cardData}
+/>
+
+<!-- Section Second Hero SEO -->
+<SecondHero 
+title={seoSecondHeroContent.title}
+subtitle={seoSecondHeroContent.subtitle}
+img={seoSecondHeroContent.img}
+altImg={seoSecondHeroContent.altImg}
+width={seoSecondHeroContent.width}
+height={seoSecondHeroContent.height}
+badgeTitle={seoSecondHeroContent.badgeTitle}
+/>
+
+<!-- Section Processus SEO -->
+<ProcessSteps 
+title="Notre Approche SEO"
+subtitle="Une méthodologie en plusieurs étapes pour optimiser vos processus SEO"
+steps={psdApproachSteps}
+/>
+
+<!-- Section Nos Points Forts -->
+<StrengthsGrid 
+title={strengthsContent.title}
+subtitle={strengthsContent.subtitle}
+strengths={strengthsContent.strengths}
+/>
+
+<!-- Section Témoignages -->
+<TestimonialGroup 
+title="Ce que disent nos clients"
+testimonials={testimonials}
+/>
+
+<!-- Section FAQ -->
+<Faq faq={faqItems} />
+
+</Layout>

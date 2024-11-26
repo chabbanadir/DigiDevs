@@ -1,13 +1,17 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+
 
 // Props
-const { steps, title, subtitle } = Astro.props;
+const { steps, title, subtitle,img='/illustration/décision.png' ,altImg='alt img',width=800,height=800} = Astro.props;
 ---
 
 <section class="process-steps p-12 sm:px-24 bg-primary">
   <h2 class="text-3xl font-bold mb-4 text-center text-accent">{title}</h2>
-  <p class="mb-8 text-light-gray text-center">{subtitle}</p>
+  <div class="md:flex md:items-center md:justify-between sm:px-24 bg-primary text-neutral p-12">
+    <div>
+      <p class="mb-8 text-light-gray text-center">{subtitle}</p>
   
   <ol class="relative border-l border-gray-200 dark:border-gray-700 ml-6">
     {steps.map((step: { icon: any; title: unknown; description: unknown; }) => (
@@ -24,4 +28,9 @@ const { steps, title, subtitle } = Astro.props;
       </li>
     ))}
   </ol>
+    </div> 
+    <div class=" md:block justify-center sm:justify-end hidden-animation" id="image-section">
+      <Image src={img} alt={altImg} width={width} height={height} class="rounded-lg" />
+    </div>
+  </div>
 </section>

@@ -1,8 +1,22 @@
 ---
+import HeroSection from "../moleculs/HeroSection.astro";
+
+const heroProps = {
+  img: '/illustration/HeroSection.png',
+  altImg: 'Image descriptive de Digital Development',
+  title: 'À Propos de Digital Development',
+  subtitle: 'Découvrez qui nous sommes, notre mission, et ce que nous vous apportons.',
+  btnTitle: 'En savoir plus',
+  btnclassName: 'btn-primary',
+  badgeTitle: 'Engagement Qualité'
+};
 
 ---
 
-<section class="m-4">
+<HeroSection {...heroProps} />
+
+
+<section class="m-20">
     <form>
         <div class="grid gap-6 mb-6 md:grid-cols-2">
             <div>

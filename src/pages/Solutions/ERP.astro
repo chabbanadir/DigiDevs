@@ -1,0 +1,370 @@
+---
+import CollaborationTimeline from "../../components/moleculs/CollaborationTimeline.astro";
+import HeroSection from "../../components/moleculs/HeroSection.astro";
+import ProcessSteps from "../../components/moleculs/ProcessSteps.astro";
+import SecondHero from "../../components/moleculs/SecondHero.astro";
+import StrengthsGrid from "../../components/moleculs/StrengthsGrid.astro";
+import Technologies from "../../components/moleculs/Technologies.astro";
+import TestimonialGroup from "../../components/moleculs/TestimonialGroup.astro";
+import WhySection from "../../components/moleculs/WhySection.astro";
+import Faq from "../../components/organics/Faq.astro";
+import Layout from "../../layouts/Layout.astro";
+const heroContent = {
+    title: 'Optimisez Vos Processus Métier avec l’ERP Odoo',
+    subtitle: 'Découvrez comment notre expertise en intégration d’Odoo centralise et optimise vos opérations.',
+    img: '/illustration/OdooHero.png',
+    altImg: 'ERP Odoo Hero',
+    width: 900,
+    height: 900,
+    btnTitle: "Contactez-Nous pour un Devis",
+    btnclassName: "bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-2 px-6 rounded-full shadow-lg transform transition hover:scale-105",
+    badgeTitle: "Accélérez Votre Croissance"
+};
+const secondHeroContent = {
+    title: 'Les Services Offerts',
+    subtitle: "Notre gamme complète de services d’intégration d’Odoo est conçue pour répondre aux besoins spécifiques de votre entreprise.",
+    img: '/illustration/OdooServices.png',
+    altImg: 'Intégration ERP Odoo',
+    width: 900,
+    height: 900,
+    badgeTitle: "Des Solutions sur Mesure pour Votre Croissance"
+};
+const psdApproachSteps = [
+  {
+    title: "Analyse et Diagnostic",
+    description: "Audit et cartographie des processus actuels pour identifier les inefficacités.",
+    icon: "mdi:magnify"  // Icone de loupe pour l'analyse
+  },
+  {
+    title: "Simplification des Processus",
+    description: "Refonte et standardisation pour accroître l'efficacité.",
+    icon: "mdi:filter-outline"  // Icone de filtre pour simplification
+  },
+  {
+    title: "Conception de la Solution Digitale",
+    description: "Architecture technique et choix technologiques adaptés.",
+    icon: "mdi:application-outline"  // Icone d'application pour la conception
+  },
+  {
+    title: "Développement et Intégration",
+    description: "Création et intégration de l'application dans vos systèmes existants.",
+    icon: "mdi:code-tags"  // Icone de code pour développement
+  },
+  {
+    title: "Tests et Validation",
+    description: "Validation fonctionnelle et retour utilisateur pour un produit parfait.",
+    icon: "mdi:check-circle-outline"  // Icone de validation
+  },
+  {
+    title: "Déploiement et Formation",
+    description: "Mise en production et formation des équipes pour une adoption réussie.",
+    icon: "mdi:rocket-launch-outline"  // Icone de fusée pour déploiement
+  },
+  {
+    title: "Suivi et Amélioration Continue",
+    description: "Support et évolutions pour une solution toujours à jour.",
+    icon: "mdi:progress-check"  // Icone de suivi et amélioration
+  }
+];
+const strengthsContent = {
+    title: "Nos Points Forts",
+    subtitle: "Pourquoi nous choisir pour votre projet Odoo",
+    strengths: [
+        {
+            icon: "mdi:certificate",
+            title: "Expertise Certifiée Odoo",
+            description: "Une équipe formée et certifiée pour garantir une intégration réussie avec les meilleures pratiques Odoo."
+        },
+        {
+            icon: "mdi:account-group",
+            title: "Approche Personnalisée",
+            description: "Des solutions adaptées à vos besoins spécifiques et à votre secteur d’activité pour une parfaite adéquation."
+        },
+        {
+            icon: "mdi:briefcase-check",
+            title: "Expérience Multi-Secteurs",
+            description: "Une expertise dans divers secteurs comme le commerce, l’industrie, les services, et bien d’autres, pour des solutions adaptées."
+        },
+        {
+            icon: "mdi:map-marker-multiple",
+            title: "Support Local et International",
+            description: "Présence en France et au Maroc, offrant un accompagnement de proximité et une disponibilité accrue."
+        },
+        {
+            icon: "mdi:shield-check",
+            title: "Transparence et Sécurité",
+            description: "Engagement pour la transparence dans la gestion de projet et la sécurité des données de votre entreprise."
+        },
+        {
+            icon: "mdi:rocket-launch",
+            title: "Mise en Œuvre Rapide",
+            description: "Une méthodologie agile permettant une mise en œuvre rapide pour un retour sur investissement immédiat."
+        },
+        {
+            icon: "mdi:account-cash",
+            title: "Optimisation des Coûts",
+            description: "Réduction des coûts grâce à une intégration complète d’Odoo et une optimisation des processus métiers."
+        },
+        {
+            icon: "mdi:calendar-refresh",
+            title: "Suivi Continu et Maintenance",
+            description: "Support technique continu et maintenance évolutive pour assurer la pérennité et l’évolution de votre solution Odoo."
+        }
+    ]
+};
+
+const collaborationProcess = [
+  {
+    title: "Prise de Contact",
+    description: "Première rencontre pour comprendre vos besoins.",
+    icon: "mdi:account-box-outline"  // Icone de profil pour prise de contact
+  },
+  {
+    title: "Étude Préliminaire avec Approche PSD",
+    description: "Analyse de vos processus métiers et identification des simplifications possibles.",
+    icon: "mdi:clipboard-text-outline"  // Icone de clipboard pour étude
+  },
+  {
+    title: "Proposition Commerciale",
+    description: "Envoi d’un devis et d’un plan de projet.",
+    icon: "mdi:file-document-outline"  // Icone de document pour devis
+  },
+  {
+    title: "Lancement du Projet",
+    description: "Début des travaux après la signature du contrat.",
+    icon: "mdi:play-circle-outline"  // Icone de play pour lancement
+  },
+  {
+    title: "Suivi du Projet",
+    description: "Points réguliers pour faire le suivi et intégrer les retours.",
+    icon: "mdi:timeline-clock-outline"  // Icone de timeline pour suivi
+  },
+  {
+    title: "Livraison et Formation",
+    description: "Remise du produit final et formation des équipes.",
+    icon: "mdi:school-outline"  // Icone d'école pour formation
+  },
+  {
+    title: "Support Continu",
+    description: "Assistance post-lancement pour assurer le succès à long terme.",
+    icon: "mdi:lifebuoy"  // Icone de bouée pour support continu
+  }
+];
+const testimonials = [
+    {
+        name: "Thomas Leroy",
+        image: "/image1.png",
+        quote: "L'intégration d'Odoo a révolutionné notre façon de travailler. Nos processus sont désormais fluides et nous avons une visibilité complète sur nos opérations.",
+        rating: 5
+    },
+    {
+        name: "Claire Dupuis",
+        image: "/image2.png",
+        quote: "Grâce à DigiDevs, nous avons une solution ERP parfaitement adaptée à nos besoins. Leur expertise et réactivité sont impressionnantes.",
+        rating: 4.5
+    },
+    {
+        name: "Michel Moreau",
+        image: "/image1.png",
+        quote: "L’équipe de DigiDevs nous a guidés tout au long du processus d’implémentation. Nous avons gagné en efficacité et en flexibilité.",
+        rating: 5
+    },
+    {
+        name: "Sophie Lemoine",
+        image: "/image2.png",
+        quote: "Avec DigiDevs, nous avons pu centraliser toutes nos données dans un seul système, ce qui a simplifié notre gestion au quotidien.",
+        rating: 4
+    },
+    {
+        name: "Jean-Paul Dubois",
+        image: "/image2.png",
+        quote: "DigiDevs a su personnaliser Odoo pour répondre aux exigences de notre secteur. Leur expertise nous a permis de transformer notre manière de travailler.",
+        rating: 4.5
+    },
+    {
+        name: "Isabelle Martin",
+        image: "/image1.png",
+        quote: "Leur support post-implémentation est exceptionnel. À chaque étape, nous nous sommes sentis soutenus et bien accompagnés.",
+        rating: 5
+    }
+];
+
+const technologies =  [
+        {
+            name: "Ventes et CRM",
+            icon: "mdi:cart-outline",
+            description: "Suivez l'ensemble du cycle de vente et optimisez les relations clients avec des outils CRM puissants."
+        },
+        {
+            name: "Comptabilité",
+            icon: "mdi:finance",
+            description: "Gérez votre comptabilité facilement avec un système intégré qui simplifie la tenue des comptes et les rapports financiers."
+        },
+        {
+            name: "Inventaire",
+            icon: "mdi:warehouse",
+            description: "Optimisez la gestion de stock, les mouvements de produits et la logistique pour une chaîne d'approvisionnement efficace."
+        },
+        {
+            name: "Ressources Humaines",
+            icon: "mdi:account-group",
+            description: "Un module complet pour gérer les employés, les feuilles de temps, les congés et la paie."
+        },
+        {
+            name: "Fabrication (MRP)",
+            icon: "mdi:factory",
+            description: "Assurez la planification et le suivi de la production avec des fonctionnalités avancées de gestion de la fabrication."
+        },
+        {
+            name: "Marketing Automatisé",
+            icon: "mdi:web",
+            description: "Déployez des campagnes marketing ciblées et gérez votre présence en ligne directement depuis Odoo."
+        },
+        {
+            name: "Site Web et E-commerce",
+            icon: "mdi:web",
+            description: "Créez et gérez un site web e-commerce intégré pour développer votre activité en ligne."
+        },
+        {
+            name: "Achats et Approvisionnement",
+            icon: "mdi:cart-arrow-down",
+            description: "Améliorez vos processus d'achats avec une gestion efficace des fournisseurs et des commandes d'achat."
+        },
+        {
+            name: "API Integrations",
+            icon: "mdi:link-variant",
+            description: "Connectez Odoo avec des services tiers pour une intégration fluide avec des solutions existantes."
+        },
+        {
+            name: "Python Development",
+            icon: "mdi:language-python",
+            description: "Personnalisation avancée et développement de nouveaux modules grâce à la flexibilité de Python."
+        },
+        {
+            name: "PostgreSQL Database",
+            icon: "mdi:database",
+            description: "Base de données robuste et fiable utilisée par Odoo pour une gestion efficace des données."
+        },
+        {
+            name: "Docker et Kubernetes",
+            icon: "mdi:docker",
+            description: "Déploiement flexible et scalable de votre solution Odoo pour une performance et une gestion améliorées."
+        },
+        {
+            name: "Cloud Platforms (AWS, Azure, Google Cloud)",
+            icon: "mdi:cloud-outline",
+            description: "Déploiement d’Odoo sur le cloud pour une solution accessible, sécurisée et scalable."
+        }
+    ];
+const whyOdooContent = {
+    title: 'Pourquoi Choisir l’ERP Odoo pour Votre Entreprise ?',
+    description: "Odoo est reconnu pour sa flexibilité, son évolutivité et sa facilité d'utilisation, ce qui en fait un choix idéal pour les entreprises de toutes tailles cherchant à centraliser et optimiser leurs opérations.",
+    cardData: [
+        {
+            icon: "mdi:account-multiple",
+            title: "Gestion des Ventes et CRM",
+            description: "Un suivi client et une gestion de ventes optimisés pour maximiser vos performances commerciales.",
+        },
+        {
+            icon: "mdi:finance",
+            title: "Comptabilité et Finance",
+            description: "Gérez votre comptabilité avec une solution intégrée et conforme aux normes.",
+        },
+        {
+            icon: "mdi:warehouse",
+            title: "Inventaire et Logistique",
+            description: "Optimisez la gestion de votre stock et de la logistique pour garantir une chaîne d'approvisionnement fluide et efficace.",
+        },
+        {
+            icon: "mdi:account-group",
+            title: "Ressources Humaines",
+            description: "Gérez efficacement vos employés, de l'embauche à la paie, avec une plateforme centralisée.",
+        },
+        {
+            icon: "mdi:web",
+            title: "Marketing et Site Web",
+            description: "Déployez des campagnes marketing et gérez votre site web directement depuis la plateforme pour attirer plus de clients.",
+        },
+        {
+            icon: "mdi:factory",
+            title: "Fabrication et MRP",
+            description: "Assurez le suivi et la planification de la production avec des fonctionnalités avancées pour une gestion de la fabrication optimale.",
+        },
+        {
+            icon: "mdi:chart-bar",
+            title: "Rapports et Analyses",
+            description: "Obtenez des rapports détaillés et une analyse en temps réel pour faciliter la prise de décisions stratégiques.",
+        },
+        {
+            icon: "mdi:cash-multiple",
+            title: "Gestion de la Trésorerie",
+            description: "Améliorez la gestion de la trésorerie en suivant les flux de fonds, les créances et les paiements en toute simplicité.",
+        }
+    ]
+};
+
+
+const faqItems = [
+    {
+        question: "Qu'est-ce que l'ERP Odoo exactement ?",
+        answer: "Odoo est une suite d'applications open-source qui couvre tous les besoins de gestion d'une entreprise, de la vente à la comptabilité en passant par les ressources humaines.",
+        tags: [
+            { label: "ERP", link: "#" },
+            { label: "Odoo", link: "#" }
+        ]
+    },
+    {
+        question: "Combien de temps prend l'implémentation d'Odoo ?",
+        answer: "La durée varie selon la complexité du projet. Une implémentation standard prend généralement entre 4 et 8 semaines.",
+        tags: [
+            { label: "Durée d'implémentation", link: "#" }
+        ]
+    },
+    {
+        question: "Quels sont les coûts d'intégration d'Odoo ?",
+        answer: "Les coûts d'intégration varient selon les modules, la personnalisation, et les services de support requis. Nous offrons une étude préliminaire gratuite pour évaluer vos besoins et fournir un devis précis.",
+        tags: [
+            { label: "Tarification", link: "#" },
+            { label: "Devis", link: "#" }
+        ]
+    },
+    {
+        question: "Pouvez-vous migrer nos données existantes vers Odoo ?",
+        answer: "Oui, nous assurons une migration sécurisée de vos données depuis vos systèmes actuels vers Odoo, tout en respectant les meilleures pratiques pour garantir l'intégrité des données.",
+        tags: [
+            { label: "Migration de données", link: "#" },
+            { label: "Sécurité", link: "#" }
+        ]
+    },
+    {
+        question: "Odoo est-il adapté à mon secteur d'activité ?",
+        answer: "Odoo est extrêmement flexible et s'adapte à de nombreux secteurs comme le commerce, la fabrication, les services professionnels, la santé, et bien d'autres.",
+        tags: [
+            { label: "Secteurs", link: "#" },
+            { label: "Industries", link: "#" }
+        ]
+    },
+    {
+        question: "Quelle est la différence entre les packs standard et sur mesure ?",
+        answer: "Le pack standard inclut l'installation de base d'Odoo et la configuration des modules standards. Le pack sur mesure comprend une analyse approfondie, des personnalisations avancées et des intégrations spécifiques pour répondre précisément à vos besoins.",
+        tags: [
+            { label: "Packs", link: "#" },
+            { label: "Personnalisation", link: "#" }
+        ]
+    }
+];
+
+
+---
+
+<Layout title="Integration ERP Odoo" className=' bg-primary' >
+    <HeroSection {...heroContent} />
+    <WhySection {...whyOdooContent} />
+    <SecondHero {...secondHeroContent} />
+    <ProcessSteps title="Notre Approche" steps={psdApproachSteps} />
+    <StrengthsGrid {...strengthsContent} />
+    <CollaborationTimeline title="Processus de Collaboration" steps={collaborationProcess} />
+    <Faq faq={faqItems} />
+    <Technologies title="Technologies Utilisées" technologies={technologies} />
+    <TestimonialGroup testimonials={testimonials} />
+ </Layout>
