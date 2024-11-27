@@ -2,43 +2,45 @@
 import Layout from '../layouts/Layout.astro';
 import { digitalizationQuiz } from "../Data/digitalizationQuiz.ts";
 import "../styles/global.css";
+import SliderComponent from '../components/organics/SliderComponent.astro';
+const sliderData = [
+  {
+    title: "Digitalisation",
+    description: "Transformez votre entreprise avec nos solutions de digitalisation sur mesure, améliorant l'efficacité opérationnelle et l'accès à de nouveaux marchés.",
+    img: "/DigiBg.jpg",
+    altImg: "Illustration de la digitalisation",
+    btnTitle: "En savoir plus",
+    btnclassName: "bg-accent text-white font-semibold py-2 px-6 rounded-full shadow-lg transform transition hover:scale-105",
+    href:"/Solutions/Digitalization"
+  },
+  {
+    title: "Intégration ERP",
+    description: "Optimisez vos processus métier avec l'intégration de l'ERP Odoo, centralisant vos opérations pour une gestion efficace et une croissance accélérée.",
+    img: "/ERPBG.jpg",
+    altImg: "Illustration de l'intégration ERP",
+    btnTitle: "Découvrir nos solutions",
+    btnclassName: "bg-accent text-white font-semibold py-2 px-6 rounded-full shadow-lg transform transition hover:scale-105",
+    href:"/Solutions/ERP"
+  },
+  {
+    title: "Audit SEO",
+    description: "Améliorez votre visibilité en ligne grâce à nos audits SEO personnalisés, identifiant les opportunités pour booster votre présence sur le web.",
+    img: "/SeoBG.jpg",
+    altImg: "Illustration d'un audit SEO",
+    btnTitle: "Obtenir un audit gratuit",
+    btnclassName: "bg-accent text-white font-semibold py-2 px-6 rounded-full shadow-lg transform transition hover:scale-105",
+    href:"/Solutions/AuditSeo"
+  }
+];
+
 ---
 
-<Layout title="Welcome to Astro." className='bg-dark-gray'  quiz={digitalizationQuiz}>
+<Layout title="Welcome to Astro." className='bg-primary'  quiz={digitalizationQuiz}>
 
-    <section class="bg-primary text-white py-12">
-        <div class="container mx-auto">
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide text-center">
-                <h2 class="text-3xl font-bold">Digitalisation</h2>
-                <p class="text-lg mt-4">Améliorez vos processus grâce à nos solutions de digitalisation.</p>
-              </div>
-              <div class="swiper-slide text-center">
-                <h2 class="text-3xl font-bold">Intégration ERP</h2>
-                <p class="text-lg mt-4">Centralisez vos données et optimisez votre gestion.</p>
-              </div>
-              <div class="swiper-slide text-center">
-                <h2 class="text-3xl font-bold">SEO Audit</h2>
-                <p class="text-lg mt-4">Boostez votre visibilité avec nos audits SEO personnalisés.</p>
-              </div>
-            </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
-        </div>
-      </section>
-      
-    <div class="bg-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                <path
-                fill="#1DA1F2"
-                fill-opacity="1"
-                d="M0,256L60,224C120,192,240,128,360,133.3C480,139,600,213,720,234.7C840,256,960,224,1080,202.7C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
-                ></path>
-            </svg>
-    </div>
+  <SliderComponent slides={sliderData} />
+  <div class="bg-accent h-screen">
+          
+  </div>
 
     
 </Layout>
